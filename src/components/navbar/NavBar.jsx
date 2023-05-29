@@ -15,16 +15,26 @@ function NavBar() {
   return (
     <div id="navbar">
       <img id="navbarLogo" src={Logo} alt="BunDrop logo" />
-      <ul id="linksList">
-        <li className="linkToPage">Home</li>
-        <li className="linkToPage">Menu</li>
-        <li className="linkToPage">Cart</li>
+      <div id="linksList">
+        <Link to="/" className="linkToPage">
+          Home
+        </Link>
+        <Link to="/menu" className="linkToPage">
+          Menu
+        </Link>
+        <Link to="/cart" className="linkToPage">
+          Cart: 0
+        </Link>
         {user === null ? (
-          <li className="linkToPage">Login/Register</li>
+          <Link to="/login" className="linkToPage">
+            Login/Register
+          </Link>
         ) : (
-          <li className="linkToPage">Account</li>
+          <Link to="/account" className="linkToPage">
+            Account
+          </Link>
         )}
-      </ul>
+      </div>
     </div>
   );
 }

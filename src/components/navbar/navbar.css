@@ -1,12 +1,15 @@
 @import url("../../globalStyles/colors.css");
 
+/*---------------------- Styles ----------------------*/
 #navbar {
   display: grid;
+
+  padding: 10px 0px;
 
   width: 100%;
   min-width: 350px;
 
-  grid-template-columns: 0.2fr 0.8fr;
+  grid-template-columns: 0.15fr 0.85fr;
   grid-template-rows: auto;
 
   background-color: var(--secondary-color);
@@ -25,16 +28,45 @@
   justify-content: space-around;
   align-items: center;
 
-  margin: 0px;
+  margin: 20px 0px;
   padding: 0px;
 }
 
 .linkToPage {
-  list-style: none;
+  text-decoration: none;
+
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+
+  padding: 5px 3%;
+  border-radius: 20px;
+
+  border: solid var(--tertiary-color) 2px;
+
+  transition: all 200ms ease-in-out;
 }
 
-@media (max-width: 351px) {
+/* ---------------------- Queries ----------------------*/
+@media (max-width: 768px) {
   #navbar {
     grid-template-columns: 1fr;
   }
+
+  #navbarLogo {
+    height: 150px;
+  }
 }
+
+@media (max-width: 350px) {
+  .linkToPage {
+    padding: 5px 2%;
+  }
+}
+
+@media (min-width: 769px) {
+  .linkToPage:hover {
+    transform: scale(1.1);
+  }
+}
+
+/*---------------------- Animations ----------------------*/
