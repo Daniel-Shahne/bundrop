@@ -38,6 +38,16 @@ function App() {
       .then((res) => res.json())
       .then((jsonRes) => setBurgersMenu(jsonRes));
   }, []);
+  useEffect(() => {
+    fetch("http://localhost:2000/fries")
+      .then((res) => res.json())
+      .then((jsonRes) => setFriesMenu(jsonRes));
+  }, []);
+  useEffect(() => {
+    fetch("http://localhost:2000/sodas")
+      .then((res) => res.json())
+      .then((jsonRes) => setSodasMenu(jsonRes));
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser, cart, setCart }}>
