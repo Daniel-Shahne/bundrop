@@ -2,7 +2,7 @@
   "burgers": [
     {
       "id": 1,
-      "name": "The OG burger",
+      "name": "The OG Burger",
       "price": 60,
       "description": "The original bun drop burger. Like the crabby patty you just cant go wrong with the OG one",
       "ingredients": [
@@ -18,14 +18,14 @@
     },
     {
       "id": 2,
-      "name": "Midnight burger",
+      "name": "Midnight Burger",
       "price": 75,
       "description": "No, i promise the chef didnt burn it. It's a stylistic choise. Comes with an EPA-uncertified dosage of coloring agents",
       "ingredients": ["Fish patty", "Bacon", "Onion", "Picke", "Cheese", "Aoli"]
     },
     {
       "id": 3,
-      "name": "Double burger",
+      "name": "Double Burger",
       "price": 90,
       "description": "For those in the bulking phase, or just using the bulking phase as an excuse like they've done the past 2 years",
       "ingredients": [
@@ -39,7 +39,7 @@
     },
     {
       "id": 4,
-      "name": "Double sweet burger",
+      "name": "Double Sweet Burger",
       "price": 90,
       "description": "Double the pattys and double the amount of sweet caramelized onion, with some paprica thrown in there too",
       "ingredients": [
@@ -52,14 +52,14 @@
     },
     {
       "id": 5,
-      "name": "Double muscle burger",
+      "name": "Double Muscle Burger",
       "price": 105,
       "description": "You got no stomache space to waste on veggies? This burger is all meat, and a LOT of sauce. You're gonna need a napkin",
       "ingredients": ["Double beef patty", "Pickles", "Cheese", "Special sauce"]
     },
     {
       "id": 6,
-      "name": "Mini burger",
+      "name": "Mini Burger",
       "price": 55,
       "description": "They say size doesn't matter and so hopefully this miniature burger will still satisfyingly fill you up",
       "ingredients": [
@@ -74,7 +74,7 @@
     {
       "id": 7,
       "name": "Ham-burger",
-      "price": 70,
+      "price": 85,
       "description": "It makes for a great pun but our chefs hate it when customers try to order this without confusing them",
       "ingredients": [
         "Beef patty",
@@ -83,6 +83,71 @@
         "Shredded ham",
         "Mustard sauce"
       ]
+    },
+    {
+      "id": 8,
+      "name": "Crispy Burger",
+      "price": 70,
+      "description": "With crispy bread and crispy bacon, this burger will both sound and taste delightful. That is if its not soggy when finally delivered",
+      "ingredients": [
+        "Beef patty",
+        "Bacon",
+        "Cheese",
+        "BBQ sauce",
+        "Garlic sauce"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "The Giga Burger",
+      "price": 115,
+      "description": "You're not eating this for any other reason than to make a statement, to let them know nothing less than the biggest is enough for you",
+      "ingredients": [
+        "Tripple beef patty",
+        "Caramelized onion",
+        "Tomato",
+        "Lettuce",
+        "Pickle",
+        "Cheese",
+        "Aoli",
+        "Special sauce"
+      ]
+    }
+  ],
+  "fries": [
+    {
+      "id": 1,
+      "name": "OG Fries",
+      "price": 30,
+      "description": "The OG fries. Can't have a burger without the fries. Skinny and extra crispy with just a little tender inside"
+    },
+    {
+      "id": 2,
+      "name": "Sweet Fries",
+      "price": 45,
+      "description": "Thick cuts of sweet potato with the crispy skin still on it. Coated with salt and herbs"
+    }
+  ],
+  "sodas": [
+    {
+      "id": 1,
+      "name": "Frida early bird",
+      "price": 15
+    },
+    {
+      "id": 2,
+      "name": "Olipop strawberry vanilla",
+      "price": 15
+    },
+    {
+      "id": 3,
+      "name": "Calpis water",
+      "price": 10
+    },
+    {
+      "id": 4,
+      "name": "Tropical energy tropical bliss",
+      "price": 20
     }
   ]
 }
