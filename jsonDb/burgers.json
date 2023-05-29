@@ -1,0 +1,41 @@
+{
+  "burgers": [
+    {
+      "id": 1,
+      "name": "The OG burger",
+      "price": 60,
+      "description": "The standard original bun drop burger. Can't go wrong with the most vanilla option, even if your friends might bully you for it",
+      "ingredients": [
+        "Beef patty",
+        "Bacon",
+        "Lettuce",
+        "Tomato",
+        "Onion",
+        "Picke",
+        "Cheese",
+        "Ketchup"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Midnight burger",
+      "price": 75,
+      "description": "No, i promise the chef didnt burn it. It's a stylistic choise. Comes with an EPA-uncertified dosage of coloring agents",
+      "ingredients": ["Fish patty", "Bacon", "Onion", "Picke", "Cheese", "Aoli"]
+    },
+    {
+      "id": 3,
+      "name": "Double burger",
+      "price": 90,
+      "description": "For those in the bulking phase, or just using the bulking phase as an excuse like they've done the past 2 years",
+      "ingredients": [
+        "Double beef patty",
+        "Lettuce",
+        "Onion",
+        "Picke",
+        "Cheese",
+        "Burger dressing"
+      ]
+    }
+  ]
+}
