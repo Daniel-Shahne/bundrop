@@ -1,0 +1,40 @@
+@import url("../../globalStyles/colors.css");
+
+#navbar {
+  display: grid;
+
+  width: 100%;
+  min-width: 230px;
+
+  grid-template-columns: 0.2fr 0.8fr;
+  grid-template-rows: auto;
+
+  background-color: var(--secondary-color);
+}
+
+#navbarLogo {
+  height: 70px;
+
+  justify-self: center;
+  align-self: center;
+}
+
+#linksList {
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+
+  margin: 0px;
+  padding: 0px;
+}
+
+.linkToPage {
+  list-style: none;
+}
+
+@media (max-width: 350px) {
+  #navbar {
+    grid-template-columns: 1fr;
+  }
+}
