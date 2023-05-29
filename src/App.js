@@ -50,7 +50,17 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, cart, setCart }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        cart,
+        setCart,
+        burgersMenu,
+        friesMenu,
+        sodasMenu,
+      }}
+    >
       <Router>
         <NavBar />
         <Routes>

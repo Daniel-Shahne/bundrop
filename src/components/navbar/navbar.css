@@ -25,23 +25,17 @@
 #linksList {
   display: flex;
 
-  justify-content: space-around;
+  justify-content: end;
   align-items: center;
 
-  margin: 20px 0px;
+  margin: 0px;
   padding: 0px;
 }
 
 .linkToPage {
   text-decoration: none;
 
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
-
-  padding: 5px 3%;
-  border-radius: 20px;
-
-  border: solid var(--tertiary-color) 2px;
+  color: var(--primary-color);
 
   transition: all 200ms ease-in-out;
 }
@@ -55,17 +49,29 @@
   #navbarLogo {
     height: 150px;
   }
-}
 
-@media (max-width: 350px) {
-  .linkToPage {
-    padding: 5px 2%;
+  #linksList {
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 20px 0px;
+    padding: 0px;
   }
 }
 
 @media (min-width: 769px) {
+  .linkToPage {
+    margin: 0px 20px;
+  }
+
+  #linksList {
+    height: 100%;
+  }
+
   .linkToPage:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
 
