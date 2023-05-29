@@ -1,5 +1,5 @@
 // Logic imports
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, createContext } from "react";
 
@@ -26,6 +26,18 @@ function App() {
 
   // State variable containing items in cart
   const [cart, setCart] = useState(null);
+
+  // State variables containing the entire menu
+  const [burgersMenu, setBurgersMenu] = useState(null);
+  const [friesMenu, setFriesMenu] = useState(null);
+  const [sodasMenu, setSodasMenu] = useState(null);
+
+  // Fetches the entire menu and stores in menu state var
+  useEffect(() => {
+    fetch("http://localhost:2000/burgers")
+      .then((res) => res.json())
+      .then((jsonRes) => setBurgersMenu(jsonRes));
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser, cart, setCart }}>
