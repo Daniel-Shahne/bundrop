@@ -34,6 +34,7 @@
 
 .linkToPage {
   text-decoration: none;
+  font-size: 1.3rem;
 
   color: var(--primary-color);
 
@@ -72,6 +73,12 @@
 
   .linkToPage:hover {
     transform: scale(1.2);
+  }
+}
+
+@media (max-width: 350px) {
+  .linkToPage {
+    font-size: 1.1rem;
   }
 }
 

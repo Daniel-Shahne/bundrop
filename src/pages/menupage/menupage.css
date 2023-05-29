@@ -1,14 +1,45 @@
 @import url("../../globalStyles/colors.css");
 
 #menuPageBodyRoot {
-  width: 100%;
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  height: 800px;
+}
+
+#categoryAndSearchContainer {
+  display: grid;
+
+  padding: 10px 0px;
+
+  grid-template-columns: 0.7fr 0.3fr;
+  grid-auto-rows: auto;
+}
+@media (max-width: 768px) {
+  #categoryAndSearchContainer {
+    grid-template-columns: 1fr;
+  }
 }
 
 #foodCategoriesList {
   display: flex;
   justify-content: space-around;
+
+  height: 50px;
+  margin: 0px 10px;
 }
 
 .foodCategoryLi {
   list-style: none;
+
+  font-size: 1.25rem;
+
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.foodCategoryLi:hover {
+  text-decoration: underline;
 }
