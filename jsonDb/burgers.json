@@ -4,7 +4,7 @@
       "id": 1,
       "name": "The OG burger",
       "price": 60,
-      "description": "The standard original bun drop burger. Can't go wrong with the most vanilla option, even if your friends might bully you for it",
+      "description": "The original bun drop burger. Like the crabby patty you just cant go wrong with the OG one",
       "ingredients": [
         "Beef patty",
         "Bacon",
@@ -32,9 +32,56 @@
         "Double beef patty",
         "Lettuce",
         "Onion",
-        "Picke",
+        "Pickle",
         "Cheese",
         "Burger dressing"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Double sweet burger",
+      "price": 90,
+      "description": "Double the pattys and double the amount of sweet caramelized onion, with some paprica thrown in there too",
+      "ingredients": [
+        "Double beef patty",
+        "Caramelized onion",
+        "Paprica",
+        "Pickle",
+        "Burger dressing"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Double muscle burger",
+      "price": 105,
+      "description": "You got no stomache space to waste on veggies? This burger is all meat, and a LOT of sauce. You're gonna need a napkin",
+      "ingredients": ["Double beef patty", "Pickles", "Cheese", "Special sauce"]
+    },
+    {
+      "id": 6,
+      "name": "Mini burger",
+      "price": 55,
+      "description": "They say size doesn't matter and so hopefully this miniature burger will still satisfyingly fill you up",
+      "ingredients": [
+        "Small beef patty",
+        "Pickles",
+        "Cheese",
+        "Onion",
+        "Lettuce",
+        "Mustard sauce"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Ham-burger",
+      "price": 70,
+      "description": "It makes for a great pun but our chefs hate it when customers try to order this without confusing them",
+      "ingredients": [
+        "Beef patty",
+        "Caramelized onion",
+        "Cheese",
+        "Shredded ham",
+        "Mustard sauce"
       ]
     }
   ]
