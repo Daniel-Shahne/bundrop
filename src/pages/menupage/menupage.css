@@ -1,0 +1,14 @@
+@import url("../../globalStyles/colors.css");
+
+#menuPageBodyRoot {
+  width: 100%;
+}
+
+#foodCategoriesList {
+  display: flex;
+  justify-content: space-around;
+}
+
+.foodCategoryLi {
+  list-style: none;
+}

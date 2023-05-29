@@ -1,1 +1,6 @@
 @import url("./globalStyles/colors.css");
+
+* {
+  margin: 0px;
+  padding: 0px;
+}

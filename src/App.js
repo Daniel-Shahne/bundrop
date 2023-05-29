@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, createContext } from "react";
 
 // Pages (component) imports
-import HomePage from "./pages/HomePage";
-import MenuPage from "./pages/MenuPage";
-import CartPage from "./pages/CartPage";
-import AccountPage from "./pages/AccountPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import HomePage from "./pages/homepage/HomePage";
+import MenuPage from "./pages/menupage/MenuPage";
+import CartPage from "./pages/cartpage/CartPage";
+import AccountPage from "./pages/accountpage/AccountPage";
+import LoginPage from "./pages/loginpage/LoginPage";
+import RegisterPage from "./pages/registerpage/RegisterPage";
 
 // Individual component imports
 import NavBar from "./components/navbar/NavBar";
