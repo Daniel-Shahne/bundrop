@@ -1,8 +1,8 @@
 // Logic imports
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 // Image imports
 import Logo from "../../images/logos/logo color.png";
@@ -20,7 +20,7 @@ function NavBar() {
         <li className="linkToPage">Menu</li>
         <li className="linkToPage">Cart</li>
         {user === null ? (
-          <li className="linkToPage">Login</li>
+          <li className="linkToPage">Login/Register</li>
         ) : (
           <li className="linkToPage">Account</li>
         )}

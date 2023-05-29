@@ -4,7 +4,7 @@
   display: grid;
 
   width: 100%;
-  min-width: 230px;
+  min-width: 350px;
 
   grid-template-columns: 0.2fr 0.8fr;
   grid-template-rows: auto;
@@ -33,7 +33,7 @@
   list-style: none;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 351px) {
   #navbar {
     grid-template-columns: 1fr;
   }

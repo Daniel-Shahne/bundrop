@@ -6,6 +6,12 @@ import { useState, createContext } from "react";
 // Pages (component) imports
 import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
+import CartPage from "./pages/CartPage";
+import AccountPage from "./pages/AccountPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+
+// Individual component imports
 import NavBar from "./components/navbar/NavBar";
 
 // Stylesheet imports
@@ -28,6 +34,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/menu" element={<MenuPage />}></Route>
+          <Route path="/cart" element={<CartPage />}></Route>
+          <Route path="/account" element={<AccountPage />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
         </Routes>
       </Router>
     </UserContext.Provider>
