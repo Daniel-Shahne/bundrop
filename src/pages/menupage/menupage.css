@@ -26,6 +26,7 @@
 #foodCategoriesList {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 
   height: 50px;
   margin: 0px 10px;
@@ -33,14 +34,13 @@
 
 .foodCategoryLi {
   list-style: none;
-
+  position: relative;
   font-size: 1.25rem;
+
+  height: 50%;
 
   color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.foodCategoryLi:hover {
-  text-decoration: underline;
 }

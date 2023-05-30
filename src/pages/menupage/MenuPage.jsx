@@ -1,7 +1,8 @@
 // Logic imports
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../App";
+import { toggleClass768px } from "../../scripts/animationScripts";
 
 // Component imports
 import MenuItemCard from "../../components/menuItemCard/MenuItemCard";
@@ -14,6 +15,14 @@ import "./menupage.css";
 
 function MenuPage() {
   const { burgersMenu, friesMenu, sodasMenu } = useContext(UserContext);
+
+  useEffect(() => {
+    window.addEventListener("resize", () =>
+      toggleClass768px(".foodCategoryLi", "underlineAnimW")
+    );
+    toggleClass768px(".foodCategoryLi", "underlineAnimW");
+    // return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div

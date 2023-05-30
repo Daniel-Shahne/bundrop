@@ -9,6 +9,7 @@
   transition: 300ms ease-in-out;
   position: absolute;
   left: 50%;
+  bottom: 0px;
   transform: translateX(-50%);
 }
 
