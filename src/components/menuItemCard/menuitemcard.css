@@ -16,6 +16,7 @@
   align-items: center;
 
   border: solid var(--secondary-color) 4px;
+  border-radius: 10px;
 }
 .menuItemPicture {
   height: 150px;
@@ -37,12 +38,25 @@
   color: var(--primary-color);
 }
 
+.menuItemDescCont {
+  flex-grow: 1;
+}
 .menuItemDescription {
   font-size: 0.6rem;
   margin: 0px 2px;
 }
 
-.menuItemPrice {
+.menuItemPriceStarCont {
+  height: 50px;
   width: 100%;
-  flex-grow: 1;
+
+  justify-content: space-between;
+  align-items: end;
+}
+.favouriteStar {
+  font-size: 1.5rem;
+}
+.menuItemPrice {
+  font-size: 0.8rem;
+  margin: 0px 7px 6px 0px;
 }
