@@ -22,11 +22,11 @@ function MenuItemCard(props) {
         <span className="menuItemName">{props.item.name}</span>
       </div>
       <div className="menuItemDescCont cardTextContainer">
-        <span className="menuItemDescription">{props.item.description}</span>
+        <span className="menuItemDescription ">{props.item.description}</span>
       </div>
       <div className="menuItemPriceStarCont cardTextContainer">
-        <span className="favouriteStar">☆</span>
-        <span className="menuItemPrice">{props.item.price} SEK</span>
+        <span className="favouriteStar ">☆</span>
+        <span className="menuItemPrice ">{props.item.price} SEK</span>
       </div>
     </div>
   );

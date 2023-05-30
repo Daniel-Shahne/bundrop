@@ -1,6 +1,7 @@
 :root {
   --primary-color: rgb(255, 160, 122);
-  --secondary-color: rgb(58, 43, 37);
-  --tertiary-color: rgb(226, 214, 210);
+  --secondary-color: rgb(34, 22, 17);
+  --quaternary-color: rgb(129, 98, 86);
+  --tertiary-color: rgb(207, 207, 207);
   --almost-white: rgb(255, 255, 255);
 }
