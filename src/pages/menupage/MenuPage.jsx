@@ -1,6 +1,6 @@
 // Logic imports
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 import { UserContext } from "../../App";
 import { toggleClass768px } from "../../scripts/animationScripts";
 
@@ -16,7 +16,8 @@ import "./menupage.css";
 function MenuPage() {
   const { burgersMenu, friesMenu, sodasMenu } = useContext(UserContext);
 
-  useEffect(() => {
+  // TODO: Sometimes on first page load toggleClass wont be run?
+  useLayoutEffect(() => {
     window.addEventListener("resize", () =>
       toggleClass768px(".foodCategoryLi", "underlineAnimW")
     );
@@ -45,7 +46,7 @@ function MenuPage() {
             </div>
           </div>
           <div id="foodCategoriesItems">
-            <div id="burgersContainer">
+            <div id="burgersContainer" data-display="true">
               {burgersMenu.map((mappedItem) => {
                 return <MenuItemCard key={mappedItem.id} item={mappedItem} />;
               })}
