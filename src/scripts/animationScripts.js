@@ -1,6 +1,6 @@
-export function handleResize() {
-  const elements = document.querySelectorAll(".linkToPage");
+export function toggleClass768px(selector, class_) {
+  const elements = document.querySelectorAll(selector);
   elements.forEach((element) => {
-    element.classList.toggle("underlineAnimW", window.innerWidth > 768);
+    element.classList.toggle(class_, window.innerWidth > 768);
   });
 }

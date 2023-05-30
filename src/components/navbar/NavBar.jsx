@@ -3,7 +3,7 @@ import React from "react";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
-import { handleResize } from "../../scripts/animationScripts";
+import { toggleClass768px } from "../../scripts/animationScripts";
 
 // Image imports
 import Logo from "../../images/logos/logo color.png";
@@ -15,9 +15,11 @@ function NavBar() {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", () =>
+      toggleClass768px(".linkToPage", "underlineAnimW")
+    );
+    toggleClass768px(".linkToPage", "underlineAnimW");
+    // return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
