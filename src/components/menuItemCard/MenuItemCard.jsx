@@ -14,9 +14,10 @@ import "./menuitemcard.css";
 function MenuItemCard(props) {
   const [importedImage, setImportedImage] = useState(null);
 
+  // `${props.item.imageSource}`
   return (
     <div className="menuItemCard">
-      <img src={require(`${props.item.imageSource}`).default} />
+      <img src={props.item.imageSource} />
     </div>
   );
 }
