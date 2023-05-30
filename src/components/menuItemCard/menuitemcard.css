@@ -83,7 +83,7 @@
 }
 
 .menuItemPriceStarCont {
-  height: 50px;
+  height: auto;
   width: 100%;
 
   justify-content: space-between;
