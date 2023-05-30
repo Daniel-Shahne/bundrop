@@ -3,6 +3,7 @@ import React from "react";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
+import { handleResize } from "../../scripts/animationScripts";
 
 // Image imports
 import Logo from "../../images/logos/logo color.png";
@@ -18,13 +19,6 @@ function NavBar() {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const handleResize = () => {
-    const elements = document.querySelectorAll(".linkToPage");
-    elements.forEach((element) => {
-      element.classList.toggle("underlineAnimW", window.innerWidth > 768);
-    });
-  };
 
   return (
     <div id="navbar">

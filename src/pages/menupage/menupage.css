@@ -1,4 +1,5 @@
 @import url("../../globalStyles/colors.css");
+@import url("../../globalStyles/animations.css");
 
 #menuPageBodyRoot {
   background-size: 100% 100%;
