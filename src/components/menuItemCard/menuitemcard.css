@@ -5,6 +5,8 @@
 
   background-color: var(--almost-white);
 
+  box-sizing: border-box;
+
   height: 300px;
   width: 150px;
 
@@ -21,7 +23,7 @@
   transition: all 200ms ease-in-out;
 }
 .menuItemCard:hover {
-  background-color: var(--tertiary-color);
+  border: solid var(--secondary-color) 4px;
 }
 
 .menuItemPicture {
