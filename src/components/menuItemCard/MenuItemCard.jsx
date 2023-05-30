@@ -17,7 +17,16 @@ function MenuItemCard(props) {
   // `${props.item.imageSource}`
   return (
     <div className="menuItemCard">
-      <img src={props.item.imageSource} />
+      <img className="menuItemPicture" src={props.item.imageSource} />
+      <div className="menuItemNameCont cardTextContainer">
+        <span className="menuItemName">{props.item.name}</span>
+      </div>
+      <div className="menuItemDescCont cardTextContainer">
+        <span className="menuItemDescription">{props.item.description}</span>
+      </div>
+      <div className="menuItemPriceCont cardTextContainer">
+        <span className="menuItemPrice">{props.item.price} SEK</span>
+      </div>
     </div>
   );
 }

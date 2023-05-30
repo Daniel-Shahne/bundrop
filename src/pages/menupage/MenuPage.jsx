@@ -26,10 +26,7 @@ function MenuPage() {
   }, []);
 
   return (
-    <div
-      id="menuPageBodyRoot"
-      style={{ backgroundImage: `url(${TallKitchen})` }}
-    >
+    <div id="menuPageBodyRoot">
       {/* Checks if menus are fetched */}
       {burgersMenu && friesMenu && sodasMenu ? (
         // The real menu page begins here
@@ -45,12 +42,34 @@ function MenuPage() {
               <button>Search</button>
             </div>
           </div>
-          <div id="foodCategoriesItems">
-            <div id="burgersContainer" data-display="true">
-              {burgersMenu.map((mappedItem) => {
-                return <MenuItemCard key={mappedItem.id} item={mappedItem} />;
-              })}
-            </div>
+          <div id="foodCardItemsGrid">
+            {burgersMenu.map((mappedItem) => {
+              return (
+                <MenuItemCard
+                  key={mappedItem.id}
+                  item={mappedItem}
+                  category="burgers"
+                />
+              );
+            })}
+            {friesMenu.map((mappedItem) => {
+              return (
+                <MenuItemCard
+                  key={mappedItem.id}
+                  item={mappedItem}
+                  category="fries"
+                />
+              );
+            })}
+            {sodasMenu.map((mappedItem) => {
+              return (
+                <MenuItemCard
+                  key={mappedItem.id}
+                  item={mappedItem}
+                  category="sodas"
+                />
+              );
+            })}
           </div>
         </div>
       ) : (

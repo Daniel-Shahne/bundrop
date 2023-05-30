@@ -1,1 +1,48 @@
 @import url("../../globalStyles/colors.css");
+
+.menuItemCard {
+  position: relative;
+
+  box-sizing: border-box;
+
+  height: 304px;
+  width: 158px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  border: solid var(--secondary-color) 4px;
+}
+.menuItemPicture {
+  height: 150px;
+  width: 150px;
+}
+
+.cardTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.menuItemNameCont {
+  height: 50px;
+  width: 100%;
+}
+.menuItemName {
+  color: var(--primary-color);
+}
+
+.menuItemDescription {
+  font-size: 0.6rem;
+  margin: 0px 2px;
+}
+
+.menuItemPrice {
+  width: 100%;
+  flex-grow: 1;
+}

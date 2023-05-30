@@ -2,11 +2,7 @@
 @import url("../../globalStyles/animations.css");
 
 #menuPageBodyRoot {
-  background-size: 100% 100%;
-  background-position: center top;
-  background-repeat: no-repeat;
-
-  height: 800px;
+  background-color: var(--tertiary-color);
 }
 
 #categoryAndSearchContainer {
@@ -31,7 +27,6 @@
   height: 50px;
   margin: 0px 10px;
 }
-
 .foodCategoryLi {
   list-style: none;
   position: relative;
@@ -39,8 +34,17 @@
 
   height: 50%;
 
-  color: var(--primary-color);
+  color: var(--secondary-color);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#foodCardItemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  place-items: center;
+  gap: 20px;
+
+  margin: 0px 20px;
 }
