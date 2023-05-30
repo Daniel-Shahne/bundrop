@@ -24,6 +24,11 @@ function MenuItemCard(props) {
       <div className="menuItemDescCont cardTextContainer">
         <span className="menuItemDescription ">{props.item.description}</span>
       </div>
+      <div className="menuItemCartCont">
+        <button className="decrementCartItem cartChangeButton">-</button>
+        <span className="itemsInCart">0</span>
+        <button className="incrementCartItem cartChangeButton">+</button>
+      </div>
       <div className="menuItemPriceStarCont cardTextContainer">
         <span className="favouriteStar ">☆</span>
         <span className="menuItemPrice ">{props.item.price} SEK</span>

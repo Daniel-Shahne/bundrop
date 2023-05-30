@@ -21,7 +21,7 @@
       "id": 2,
       "name": "Midnight Burger",
       "price": 75,
-      "description": "No, i promise the chef didnt burn it. It's a stylistic choise. Comes with an EPA-uncertified dosage of coloring agents",
+      "description": "I promise we've heard every joke you could possibly think of about this being a burnt burger",
       "ingredients": [
         "Fish patty",
         "Bacon",
@@ -170,14 +170,14 @@
       "id": 3,
       "name": "Calpis water",
       "imageSource": "./images/sodas/soda-3.png",
-      "description": "The great thing about sugar is you can dissolve a large amount of it without changing the appearance of water",
+      "description": "The great thing about sugar is you can dissolve a large amount of it in water without changing the opacity",
       "price": 10
     },
     {
       "id": 4,
       "name": "Tropical energy tropical bliss",
       "imageSource": "./images/sodas/soda-4.png",
-      "description": "Not even going to try and sugarcoat this one. You know how bad energy drinks are for you",
+      "description": "Not even going to try and sugarcoat this one. You already know how bad energy drinks are for you",
       "price": 20
     }
   ]

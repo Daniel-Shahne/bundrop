@@ -2,24 +2,17 @@
 
 .menuItemCard {
   position: relative;
-
   background-color: var(--almost-white);
-
   box-sizing: border-box;
-
   height: 300px;
   width: 150px;
-
   overflow: hidden;
-
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-
   border: solid var(--secondary-color) 2px;
   border-radius: 5px;
-
   transition: all 200ms ease-in-out;
 }
 .menuItemCard:hover {
@@ -54,6 +47,39 @@
 .menuItemDescription {
   font-size: 0.6rem;
   margin: 0px 2px;
+}
+
+.menuItemCartCont {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+  justify-content: space-around;
+}
+.decrementCartItem {
+  width: 20px;
+  height: 20px;
+  color: var(--almost-white);
+  background-color: var(--warning-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.incrementCartItem {
+  width: 20px;
+  height: 20px;
+  color: var(--almost-white);
+  background-color: var(--confirm-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.cartChangeButton {
+  transition: 200ms ease-in-out;
+}
+.cartChangeButton:hover {
+  opacity: 0.75;
 }
 
 .menuItemPriceStarCont {

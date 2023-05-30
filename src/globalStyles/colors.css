@@ -4,4 +4,6 @@
   --quaternary-color: rgb(129, 98, 86);
   --tertiary-color: rgb(218, 218, 218);
   --almost-white: rgb(255, 255, 255);
+  --warning-red: rgb(211, 44, 44);
+  --confirm-green: rgb(49, 156, 49);
 }
