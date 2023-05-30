@@ -1,6 +1,6 @@
 // Logic imports
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
 
@@ -9,8 +9,22 @@ import Logo from "../../images/logos/logo color.png";
 
 // Stylesheet imports
 import "./navbar.css";
+
 function NavBar() {
   const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleResize = () => {
+    const elements = document.querySelectorAll(".linkToPage");
+    elements.forEach((element) => {
+      element.classList.toggle("underlineAnimW", window.innerWidth > 768);
+    });
+  };
 
   return (
     <div id="navbar">

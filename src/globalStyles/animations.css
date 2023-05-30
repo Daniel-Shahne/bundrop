@@ -1,0 +1,21 @@
+@import url("./colors.css");
+
+.underlineAnimW::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: var(--almost-white);
+  display: block;
+  transition: 300ms ease-in-out;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.underlineAnimW:hover::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: var(--almost-white);
+  display: block;
+}

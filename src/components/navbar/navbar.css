@@ -1,4 +1,5 @@
 @import url("../../globalStyles/colors.css");
+@import url("../../globalStyles/animations.css");
 
 /*---------------------- Styles ----------------------*/
 #navbar {
@@ -35,10 +36,9 @@
 .linkToPage {
   text-decoration: none;
   font-size: 1.3rem;
+  position: relative;
 
   color: var(--primary-color);
-
-  transition: all 200ms ease-in-out;
 }
 
 /* ---------------------- Queries ----------------------*/
@@ -69,10 +69,6 @@
 
   #linksList {
     height: 100%;
-  }
-
-  .linkToPage:hover {
-    transform: scale(1.2);
   }
 }
 
