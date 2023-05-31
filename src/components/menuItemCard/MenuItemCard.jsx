@@ -42,8 +42,8 @@ function MenuItemCard(props) {
         </button>
       </div>
       <div className="menuItemPriceStarCont cardTextContainer">
-        <span className="favouriteStar ">☆</span>
-        <span className="menuItemPrice ">{props.item.price} SEK</span>
+        <span className="favouriteStar">★</span>
+        <span className="menuItemPrice">{props.item.price} SEK</span>
       </div>
     </div>
   );

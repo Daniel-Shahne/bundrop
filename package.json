@@ -18,7 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "menu-db": "json-server --watch jsonDb/bunDropMenu.json --port 2000"
+    "menu-db": "json-server --watch jsonDb/bunDropMenu.json --port 2000",
+    "users-db": "json-server --watch jsonDb/users.json --port 2001"
   },
   "eslintConfig": {
     "extends": [

@@ -90,7 +90,10 @@
   align-items: end;
 }
 .favouriteStar {
-  font-size: 1.5rem;
+  margin-left: 3px;
+  font-size: 1.4rem;
+  color: var(--almost-white);
+  -webkit-text-stroke: 1px var(--secondary-color);
 }
 .menuItemPrice {
   font-size: 0.8rem;
