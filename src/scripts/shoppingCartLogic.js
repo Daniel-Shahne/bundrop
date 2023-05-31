@@ -1,0 +1,62 @@
+/**
+ * Updates the value for a single food item, or deletes if below 1.
+ * @param {object} stateVar The React state variable containing this cart should be an object with
+ * both keys and values representing integer values, with the key
+ * being the id of the food item and the key being the quantity in cart
+ * @param {function} stateVarSetter The setter (callback) for the React state variable
+ * @param {number} id The database Id of the food item
+ * @param {number} quantity Quantity to CHANGE the carts value by
+ */
+export function updateSingleCartItem(stateVar, stateVarSetter, idOfFood, quantity) {
+  /* If the quantity is positive and there is no property for said Id then its created */
+  if (!stateVar.hasOwnProperty(`${idOfFood}`) && quantity > 0) {
+    stateVarSetter((prevState) => ({
+      ...prevState,
+      [idOfFood]: quantity,
+    }));
+  } 
+  
+  /* If the property exists and the quantity is positive then it needs to be added
+  to the existing properties value */
+  else if (stateVar.hasOwnProperty(`${idOfFood}`) && quantity > 0) {
+    const updatedAmount = stateVar[idOfFood] + quantity;
+    stateVarSetter((prevState) => ({
+      ...prevState,
+      [idOfFood]: updatedAmount,
+    }));
+  } 
+  
+  /* If the quantity is negative then one of two things need to happen. If the
+  quantity is less than the absolute value of amount in cart then its simply
+  subtracted from the value. If however its equal to or larger than that the
+  entry (property) is removed from the cart, the object */
+  /* First case the absolute quantity is less than the carts value
+  and is subtracted */
+  else if (stateVar.hasOwnProperty(`${idOfFood}`) && Math.abs(quantity) < stateVar[idOfFood]) {
+    const updatedAmount = stateVar[idOfFood] + quantity;
+    stateVarSetter((prevState) => ({
+      ...prevState,
+      [idOfFood]: updatedAmount,
+    }));
+  }
+  /**Second case the absolute quantity is equal to or larger than
+   * the carts value
+   */
+  else if(stateVar.hasOwnProperty(`${idOfFood}`) && Math.abs(quantity) >= stateVar[idOfFood]){
+    let newObj = JSON.parse(JSON.stringify(stateVar));
+    delete newObj.idOfFood;
+    stateVarSetter(newObj)
+  }
+
+  /** Nothing other than console error (so far) printed if decrementing
+   * nonexistant property
+   */
+  else if(!stateVar.hasOwnProperty(`${idOfFood}`) && quantity < 0){
+    console.log("Can't decrement nonexistant cart item")
+  }
+
+  /** Unexpected uncaught situation */
+  else{
+    console.log("Uncaught cart in/de-crement situation")
+  }
+}

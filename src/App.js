@@ -25,7 +25,10 @@ function App() {
   const [user, setUser] = useState(null);
 
   // State variable containing items in cart
-  const [cart, setCart] = useState(null);
+  /* The cart is an object with the keys being 
+  the id of the food to buy and the value being
+  the amount of it */
+  const [cart, setCart] = useState({});
 
   // State variables containing the entire menu
   const [foodsMenu, setFoodsMenu] = useState(null);

@@ -3,6 +3,7 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../App";
 import { toggleClass768px } from "../../scripts/animationScripts";
+import { updateSingleCartItem } from "../../scripts/shoppingCartLogic";
 
 // Stylesheet imports
 import "./menuitemcard.css";
@@ -13,6 +14,7 @@ import "./menuitemcard.css";
   is a path to the images relative this component*/
 function MenuItemCard(props) {
   const [importedImage, setImportedImage] = useState(null);
+  const { cart, setCart } = useContext(UserContext);
 
   // `${props.item.imageSource}`
   return (
@@ -25,9 +27,19 @@ function MenuItemCard(props) {
         <span className="menuItemDescription ">{props.item.description}</span>
       </div>
       <div className="menuItemCartCont">
-        <button className="decrementCartItem cartChangeButton">-</button>
+        <button
+          className="decrementCartItem cartChangeButton"
+          onClick={() => updateSingleCartItem(cart, setCart, props.item.id, -1)}
+        >
+          -
+        </button>
         <span className="itemsInCart">0</span>
-        <button className="incrementCartItem cartChangeButton">+</button>
+        <button
+          className="incrementCartItem cartChangeButton"
+          onClick={() => updateSingleCartItem(cart, setCart, props.item.id, 1)}
+        >
+          +
+        </button>
       </div>
       <div className="menuItemPriceStarCont cardTextContainer">
         <span className="favouriteStar ">☆</span>
