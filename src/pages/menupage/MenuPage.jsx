@@ -7,14 +7,11 @@ import { toggleClass768px } from "../../scripts/animationScripts";
 // Component imports
 import MenuItemCard from "../../components/menuItemCard/MenuItemCard";
 
-// Image imports
-import TallKitchen from "../../images/restaurant/standardKitchen.jpg";
-
 // Stylesheet imports
 import "./menupage.css";
 
 function MenuPage() {
-  const { burgersMenu, friesMenu, sodasMenu } = useContext(UserContext);
+  const { foodsMenu } = useContext(UserContext);
 
   // TODO: Sometimes on first page load toggleClass wont be run?
   useLayoutEffect(() => {
@@ -28,7 +25,7 @@ function MenuPage() {
   return (
     <div id="menuPageBodyRoot">
       {/* Checks if menus are fetched */}
-      {burgersMenu && friesMenu && sodasMenu ? (
+      {foodsMenu !== null ? (
         // The real menu page begins here
         <div id="menuPageBody">
           <div id="categoryAndSearchContainer">
@@ -43,30 +40,12 @@ function MenuPage() {
             </div>
           </div>
           <div id="foodCardItemsGrid">
-            {burgersMenu.map((mappedItem) => {
+            {foodsMenu.map((mappedItem) => {
               return (
                 <MenuItemCard
                   key={mappedItem.id}
                   item={mappedItem}
-                  category="burgers"
-                />
-              );
-            })}
-            {friesMenu.map((mappedItem) => {
-              return (
-                <MenuItemCard
-                  key={mappedItem.id}
-                  item={mappedItem}
-                  category="fries"
-                />
-              );
-            })}
-            {sodasMenu.map((mappedItem) => {
-              return (
-                <MenuItemCard
-                  key={mappedItem.id}
-                  item={mappedItem}
-                  category="sodas"
+                  category={mappedItem.category}
                 />
               );
             })}

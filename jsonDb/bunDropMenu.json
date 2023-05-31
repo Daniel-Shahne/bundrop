@@ -1,7 +1,8 @@
 {
-  "burgers": [
+  "foodsMenu": [
     {
       "id": 1,
+      "category": "burgers",
       "name": "The OG Burger",
       "price": 60,
       "description": "The original BunDrop burger. Like the crabby patty you just cant go wrong with the OG one",
@@ -19,6 +20,7 @@
     },
     {
       "id": 2,
+      "category": "burgers",
       "name": "Midnight Burger",
       "price": 75,
       "description": "I promise we've heard every joke you could possibly think of about this being a burnt burger",
@@ -34,6 +36,7 @@
     },
     {
       "id": 3,
+      "category": "burgers",
       "name": "Double Burger",
       "price": 90,
       "description": "For those in the bulking phase, or just using the bulking phase as an excuse like they've done the past 2 years",
@@ -49,6 +52,7 @@
     },
     {
       "id": 4,
+      "category": "burgers",
       "name": "Double Sweet Burger",
       "price": 90,
       "description": "Double the pattys and double the amount of sweet caramelized onion, with some paprica thrown in there too",
@@ -63,6 +67,7 @@
     },
     {
       "id": 5,
+      "category": "burgers",
       "name": "Double Muscle Burger",
       "price": 105,
       "description": "You got no stomache space to waste on veggies? This burger is all meat, and a LOT of sauce. You're gonna need a napkin",
@@ -76,6 +81,7 @@
     },
     {
       "id": 6,
+      "category": "burgers",
       "name": "Mini Burger",
       "price": 55,
       "description": "They say size doesn't matter and so hopefully this miniature burger will still satisfyingly fill you up",
@@ -91,6 +97,7 @@
     },
     {
       "id": 7,
+      "category": "burgers",
       "name": "Ham-burger",
       "price": 85,
       "description": "It makes for a great pun but our chefs hate it when customers try to order this without confusing them",
@@ -105,6 +112,7 @@
     },
     {
       "id": 8,
+      "category": "burgers",
       "name": "Crispy Burger",
       "price": 70,
       "description": "With crispy bread and crispy bacon, this burger will both sound and taste delightful. That is if its not soggy when finally delivered",
@@ -119,6 +127,7 @@
     },
     {
       "id": 9,
+      "category": "burgers",
       "name": "The Giga Burger",
       "price": 115,
       "description": "You're not eating this for any other reason than to make a statement, to let them know nothing less than the biggest is enough for you",
@@ -133,48 +142,50 @@
         "Special sauce"
       ],
       "imageSource": "./images/burgers/burger-9.png"
-    }
-  ],
-  "fries": [
+    },
     {
-      "id": 1,
+      "id": 10,
+      "category": "fries",
       "name": "OG Fries",
       "price": 30,
       "imageSource": "./images/fries/fries-1.png",
       "description": "The OG fries. Can't have a burger without the fries. Skinny and extra crispy with just a little tender inside"
     },
     {
-      "id": 2,
+      "id": 11,
+      "category": "fries",
       "name": "Sweet Fries",
       "price": 45,
       "imageSource": "./images/fries/fries-2.png",
       "description": "Thick cuts of sweet potato with the crispy skin still on it. Coated with salt and herbs"
-    }
-  ],
-  "sodas": [
+    },
     {
-      "id": 1,
+      "id": 12,
+      "category": "sodas",
       "name": "Frida early bird",
       "imageSource": "./images/sodas/soda-1.png",
       "description": "The classic and popular drink",
       "price": 15
     },
     {
-      "id": 2,
+      "id": 13,
+      "category": "sodas",
       "name": "Olipop strawberry vanilla",
       "imageSource": "./images/sodas/soda-2.png",
       "description": "Contains a whole 0.3% 'fruit' juice!",
       "price": 15
     },
     {
-      "id": 3,
+      "id": 14,
+      "category": "sodas",
       "name": "Calpis water",
       "imageSource": "./images/sodas/soda-3.png",
       "description": "The great thing about sugar is you can dissolve a large amount of it in water without changing the opacity",
       "price": 10
     },
     {
-      "id": 4,
+      "id": 15,
+      "category": "sodas",
       "name": "Tropical energy tropical bliss",
       "imageSource": "./images/sodas/soda-4.png",
       "description": "Not even going to try and sugarcoat this one. You already know how bad energy drinks are for you",

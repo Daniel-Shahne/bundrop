@@ -28,25 +28,13 @@ function App() {
   const [cart, setCart] = useState(null);
 
   // State variables containing the entire menu
-  const [burgersMenu, setBurgersMenu] = useState(null);
-  const [friesMenu, setFriesMenu] = useState(null);
-  const [sodasMenu, setSodasMenu] = useState(null);
+  const [foodsMenu, setFoodsMenu] = useState(null);
 
   // Fetches the entire menu and stores in menu state var
   useEffect(() => {
-    fetch("http://localhost:2000/burgers")
+    fetch("http://localhost:2000/foodsMenu")
       .then((res) => res.json())
-      .then((jsonRes) => setBurgersMenu(jsonRes));
-  }, []);
-  useEffect(() => {
-    fetch("http://localhost:2000/fries")
-      .then((res) => res.json())
-      .then((jsonRes) => setFriesMenu(jsonRes));
-  }, []);
-  useEffect(() => {
-    fetch("http://localhost:2000/sodas")
-      .then((res) => res.json())
-      .then((jsonRes) => setSodasMenu(jsonRes));
+      .then((jsonRes) => setFoodsMenu(jsonRes));
   }, []);
 
   return (
@@ -56,9 +44,7 @@ function App() {
         setUser,
         cart,
         setCart,
-        burgersMenu,
-        friesMenu,
-        sodasMenu,
+        foodsMenu,
       }}
     >
       <Router>
