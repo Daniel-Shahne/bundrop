@@ -44,7 +44,7 @@ export function updateSingleCartItem(stateVar, stateVarSetter, idOfFood, quantit
    */
   else if(stateVar.hasOwnProperty(`${idOfFood}`) && Math.abs(quantity) >= stateVar[idOfFood]){
     let newObj = JSON.parse(JSON.stringify(stateVar));
-    delete newObj.idOfFood;
+    delete newObj[idOfFood];
     stateVarSetter(newObj)
   }
 
