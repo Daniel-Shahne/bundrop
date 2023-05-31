@@ -33,7 +33,7 @@ function MenuItemCard(props) {
         >
           -
         </button>
-        <span className="itemsInCart">0</span>
+        <span className="itemsInCart">{cart[props.item.id]}</span>
         <button
           className="incrementCartItem cartChangeButton"
           onClick={() => updateSingleCartItem(cart, setCart, props.item.id, 1)}

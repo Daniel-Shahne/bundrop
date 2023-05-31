@@ -60,3 +60,21 @@ export function updateSingleCartItem(stateVar, stateVarSetter, idOfFood, quantit
     console.log("Uncaught cart in/de-crement situation")
   }
 }
+
+/**
+ * Sums up the amount of items in the cart
+ * @param {object} stateVar React state variable that is an object with properties
+ * that have integer values
+ * @returns The sum of the properties values
+ */
+export function sumAllCartItems(stateVar){
+  let sum = 0;
+
+  for (const key in stateVar) {
+    if (typeof stateVar[key] === 'number') {
+      sum += stateVar[key];
+    }
+  }
+
+  return sum;
+}

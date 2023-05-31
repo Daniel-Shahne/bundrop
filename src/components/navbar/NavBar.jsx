@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
 import { toggleClass768px } from "../../scripts/animationScripts";
+import { sumAllCartItems } from "../../scripts/shoppingCartLogic";
 
 // Image imports
 import Logo from "../../images/logos/logo color.png";
@@ -12,7 +13,7 @@ import Logo from "../../images/logos/logo color.png";
 import "./navbar.css";
 
 function NavBar() {
-  const { user } = useContext(UserContext);
+  const { user, cart } = useContext(UserContext);
 
   useEffect(() => {
     window.addEventListener("resize", () =>
@@ -33,7 +34,7 @@ function NavBar() {
           Menu
         </Link>
         <Link to="/cart" className="linkToPage">
-          Cart: 0
+          Cart: {sumAllCartItems(cart)}
         </Link>
         {user === null ? (
           <Link to="/login" className="linkToPage">
