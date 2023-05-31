@@ -41,6 +41,24 @@
   color: var(--almost-white);
 }
 
+.cartQuantity[data-quantity="0"] {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--almost-white);
+}
+.cartQuantity {
+  /* Common properties */
+  height: 100%;
+  width: 28px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 150ms linear;
+
+  /* Properties for filled cart */
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
 /* ---------------------- Queries ----------------------*/
 @media (max-width: 768px) {
   #navbar {
@@ -75,6 +93,9 @@
 @media (max-width: 350px) {
   .linkToPage {
     font-size: 1.1rem;
+  }
+  .cartQuantity {
+    width: 24px;
   }
 }
 

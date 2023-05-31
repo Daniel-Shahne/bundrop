@@ -34,7 +34,10 @@ function NavBar() {
           Menu
         </Link>
         <Link to="/cart" className="linkToPage">
-          Cart: {sumAllCartItems(cart)}
+          Cart:{" "}
+          <span className="cartQuantity" data-quantity={sumAllCartItems(cart)}>
+            {sumAllCartItems(cart)}
+          </span>
         </Link>
         {user === null ? (
           <Link to="/login" className="linkToPage">
