@@ -1,5 +1,5 @@
 // Logic imports
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 export function submitLoginForm(event){
     const username = event.target.elements.usernameInput.value
@@ -8,6 +8,7 @@ export function submitLoginForm(event){
     event.preventDefault();
     if (document.activeElement.name === "submitLogin"){
         console.log(`Submitting login with name ${username} and pass ${password}`)
+        attemptLogin(username, password)
     }
     else if (document.activeElement.name === "submitRegister"){
         console.log(`Submitting reister with name ${username} and pass ${password}`)
@@ -15,4 +16,16 @@ export function submitLoginForm(event){
     else{
         console.error("Unexpected error in submitLoginForm")
     }
+}
+
+
+function attemptLogin(username, password){
+    let usersJson = null;
+    fetch("http://localhost:2001/users")
+    .then((res) => res.json())
+    .then((jsonRes) => {
+        usersJson = jsonRes;
+        console.log(usersJson)
+    })
+    .then(() => console.log(usersJson))
 }
