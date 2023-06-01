@@ -1,0 +1,72 @@
+@import url("../../globalStyles/colors.css");
+
+#loginPageRoot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tertiary-color);
+}
+
+#loginContainer {
+  background-color: var(--almost-white);
+  margin: 20px 0px;
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px 0px;
+}
+
+#imageRow {
+  height: 20%;
+}
+
+.inputsRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputLabel {
+  color: var(--primary-color);
+}
+.inputField {
+  background-color: var(--quaternary-color);
+  color: var(--primary-color);
+  border-radius: 4px;
+  text-align: center;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+.buttonsRow {
+  width: 160px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.formButton {
+  box-sizing: border-box;
+  height: 22px;
+  width: 56px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  border: solid var(--secondary-color) 1px;
+
+  transition: all 100ms ease-in-out;
+}
+.formButton:hover {
+  font-size: 11px;
+  border: solid var(--secondary-color) 2px;
+}
