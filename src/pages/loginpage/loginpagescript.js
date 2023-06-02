@@ -2,13 +2,14 @@
 import { type } from "@testing-library/user-event/dist/type";
 import { json, useNavigate } from "react-router-dom";
 
+
 export function submitLoginForm(event){
     const username = event.target.elements.usernameInput.value
     const password = event.target.elements.passwordInput.value
     
     event.preventDefault();
     if (document.activeElement.name === "submitLogin"){
-        attemptLogin(username, password)
+        const result = attemptLogin(username, password)
     }
     else if (document.activeElement.name === "submitRegister"){
     }
@@ -27,13 +28,15 @@ function attemptLogin(username, password){
     .then(() => {
         const foundUser = usersJson.find(o => o.username === username)
         if (typeof foundUser !== "undefined"){
-            console.log("User found")
             if(foundUser.password !== password){
-                console.log("Wrong password")
+                return "Wrong password"
+            }
+            else if (foundUser.password == password){
+                return true
             }
         }
         else{
-            console.log("found no user")
+            return `No user ${username} found`
         }
     })
 }
