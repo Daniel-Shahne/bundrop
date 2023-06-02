@@ -57,7 +57,7 @@ function MenuItemCard(props) {
           className="favouriteStar"
           onClick={async () => {
             setFavButtonEnabled(true);
-            await toggleUserFavourite(user, setUser, props.item.id);
+            toggleUserFavourite(user, setUser, props.item.id);
             setFavButtonEnabled(false);
           }}
           disabled={favButtonEnabled}
