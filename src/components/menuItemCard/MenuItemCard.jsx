@@ -14,7 +14,18 @@ import "./menuitemcard.css";
   is a path to the images relative this component*/
 function MenuItemCard(props) {
   const [importedImage, setImportedImage] = useState(null);
+  const [favButtonEnabled, setFavButtonEnabled] = useState(false);
   const { user, setUser, cart, setCart } = useContext(UserContext);
+
+  useEffect(() => {
+    if (user !== null) {
+      fetch(`http://localhost:2001/users/${user.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+    }
+  }, [user]);
 
   // `${props.item.imageSource}`
   return (
@@ -44,7 +55,12 @@ function MenuItemCard(props) {
       <div className="menuItemPriceStarCont cardTextContainer">
         <button
           className="favouriteStar"
-          onClick={() => toggleUserFavourite(user, setUser, props.item.id)}
+          onClick={async () => {
+            setFavButtonEnabled(true);
+            await toggleUserFavourite(user, setUser, props.item.id);
+            setFavButtonEnabled(false);
+          }}
+          disabled={favButtonEnabled}
         >
           ★
         </button>

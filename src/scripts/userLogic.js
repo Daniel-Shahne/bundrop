@@ -1,12 +1,12 @@
 async function updateUser(userState){
-    await fetch(`http://localhost:2001/users/${userState.id}`,{
-        method: "PATCH",
+    return await fetch(`http://localhost:2001/users/${userState.id}`,{
+        method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(userState)
 })
 }
 
-export async function toggleUserFavourite(userState, userStateSetter, id){
+export function toggleUserFavourite(userState, userStateSetter, id){    
     if(userState.favourites.includes(id)){
         const newUserFavs = userState.favourites.filter(elem => elem !== id)
         userStateSetter((prevState) => ({
@@ -21,5 +21,4 @@ export async function toggleUserFavourite(userState, userStateSetter, id){
             favourites: newUserFavs
         }))
     }
-    await updateUser(userState);
 }
