@@ -11,8 +11,8 @@ export function submitLoginForm(event, userStateVarSetter){
     if (document.activeElement.name === "submitLogin"){
         attemptLoginAsync(username, password)
         .then((result) => {
-            if(result === true){
-                userStateVarSetter(username)
+            if(typeof result === "object"){
+                userStateVarSetter(result)
             }
         })
     }
@@ -24,7 +24,14 @@ export function submitLoginForm(event, userStateVarSetter){
     }
 }
 
-
+/**
+ * Does an async call to a json-server containing users
+ * @param {*} username Username of authentication attempt
+ * @param {*} password Password of authentication attempt
+ * @returns Promise resolving to true if login was successfull,
+ * or a string representing an error message of why login was
+ * unsuccessfull
+ */
 function attemptLoginAsync(username, password){
     return new Promise(function(resolve, reject){
         let usersJson = null;
@@ -38,8 +45,8 @@ function attemptLoginAsync(username, password){
                 if(foundUser.password !== password){
                     resolve("Wrong password");
                 }
-                else if (foundUser.password == password){
-                    resolve(true);
+                else if (foundUser.password === password){
+                    resolve(foundUser);
                 }
             }
             else{
