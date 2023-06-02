@@ -2,7 +2,7 @@
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../../App";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { submitLoginForm } from "./loginpagescript";
 
 // image imports
@@ -13,12 +13,13 @@ import "./loginpage.css";
 
 function LoginPage() {
   const { user, setUser } = useContext(UserContext);
+  const navigator = useNavigate();
 
   return (
     <div id="loginPageRoot">
       <form
         id="loginContainer"
-        onSubmit={(event) => submitLoginForm(event, setUser)}
+        onSubmit={(event) => submitLoginForm(event, setUser, navigator)}
       >
         <img src={Logo} alt="BunDrop logo" id="imageRow" />
         <div className="containerRow inputsRow">

@@ -1,18 +1,17 @@
 // Logic imports
-import { type } from "@testing-library/user-event/dist/type";
-import { json, useNavigate } from "react-router-dom";
 
 
-export function submitLoginForm(event, userStateVarSetter){
+export function submitLoginForm(event, userStateVarSetter, navigatorCallback){
     const username = event.target.elements.usernameInput.value
     const password = event.target.elements.passwordInput.value
-    
+        
     event.preventDefault();
     if (document.activeElement.name === "submitLogin"){
         attemptLoginAsync(username, password)
         .then((result) => {
             if(typeof result === "object"){
                 userStateVarSetter(result)
+                navigatorCallback("/")
             }
         })
     }
