@@ -12,9 +12,14 @@ import Logo from "../../images/logos/logo color.png";
 import "./loginpage.css";
 
 function LoginPage() {
+  const { user, setUser } = useContext(UserContext);
+
   return (
     <div id="loginPageRoot">
-      <form id="loginContainer" onSubmit={submitLoginForm}>
+      <form
+        id="loginContainer"
+        onSubmit={(event) => submitLoginForm(event, setUser)}
+      >
         <img src={Logo} alt="BunDrop logo" id="imageRow" />
         <div className="containerRow inputsRow">
           <label
