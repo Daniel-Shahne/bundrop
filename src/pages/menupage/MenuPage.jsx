@@ -11,7 +11,7 @@ import MenuItemCard from "../../components/menuItemCard/MenuItemCard";
 import "./menupage.css";
 
 function MenuPage() {
-  const { foodsMenu } = useContext(UserContext);
+  const { user, foodsMenu } = useContext(UserContext);
 
   // TODO: Sometimes on first page load toggleClass wont be run?
   useLayoutEffect(() => {
@@ -46,6 +46,7 @@ function MenuPage() {
                   key={mappedItem.id}
                   item={mappedItem}
                   category={mappedItem.category}
+                  isFavourite={user && user.favourites.includes(mappedItem.id)}
                 />
               );
             })}

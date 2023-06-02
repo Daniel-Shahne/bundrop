@@ -2,8 +2,8 @@
 import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../App";
-import { toggleClass768px } from "../../scripts/animationScripts";
 import { updateSingleCartItem } from "../../scripts/shoppingCartLogic";
+import { toggleUserFavourite } from "../../scripts/userLogic";
 
 // Stylesheet imports
 import "./menuitemcard.css";
@@ -14,11 +14,11 @@ import "./menuitemcard.css";
   is a path to the images relative this component*/
 function MenuItemCard(props) {
   const [importedImage, setImportedImage] = useState(null);
-  const { cart, setCart } = useContext(UserContext);
+  const { user, setUser, cart, setCart } = useContext(UserContext);
 
   // `${props.item.imageSource}`
   return (
-    <div className="menuItemCard">
+    <div className="menuItemCard" data-isfavourite={props.isFavourite}>
       <img className="menuItemPicture" src={props.item.imageSource} />
       <div className="menuItemNameCont cardTextContainer">
         <span className="menuItemName">{props.item.name}</span>
@@ -42,7 +42,12 @@ function MenuItemCard(props) {
         </button>
       </div>
       <div className="menuItemPriceStarCont cardTextContainer">
-        <span className="favouriteStar">★</span>
+        <button
+          className="favouriteStar"
+          onClick={() => toggleUserFavourite(user, setUser, props.item.id)}
+        >
+          ★
+        </button>
         <span className="menuItemPrice">{props.item.price} SEK</span>
       </div>
     </div>

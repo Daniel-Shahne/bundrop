@@ -1,16 +1,21 @@
 {
-    "users":[
-        {
-            "id": 1,
-            "username": "user",
-            "password": "password",
-            "favourites": []
-        },
-        {
-            "id": 2,
-            "username": "daniel",
-            "password": "12345",
-            "favourites": [1, 3, 10, 13]
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "password",
+      "favourites": []
+    },
+    {
+      "id": 2,
+      "username": "daniel",
+      "password": "12345",
+      "favourites": [
+        10,
+        13,
+        1,
+        4
+      ]
+    }
+  ]
 }
