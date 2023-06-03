@@ -19,25 +19,53 @@
   }
 }
 
+#searchContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+
+  margin: 0px 25px;
+  gap: 6px;
+}
+#searchInput {
+  grid-column: auto / span 2;
+  background-color: var(--quaternary-color);
+  color: var(--primary-color);
+  text-align: center;
+}
+#searchInput::placeholder {
+  color: var(--tertiary-color);
+}
+.searchButton {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
 #foodCategoriesList {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-
-  height: 50px;
-  margin: 0px 10px;
+  margin-left: 24px;
+  height: 100%;
 }
-.foodCategoryLi {
-  list-style: none;
-  position: relative;
-  font-size: 1.25rem;
-
-  height: 50%;
-
-  color: var(--secondary-color);
+input[type="checkbox"] {
+  display: none;
+}
+label {
+  height: 100%;
+  width: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.foodCategoryCB + label {
+  color: var(--secondary-color);
+  background-color: var(--almost-white);
+  border-radius: 10px;
+  border: solid var(--secondary-color) 2px;
+}
+.foodCategoryCB:checked + label {
+  color: var(--primary-color);
 }
 
 #foodCardItemsGrid {
