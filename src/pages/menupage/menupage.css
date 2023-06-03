@@ -55,13 +55,6 @@
 input[type="checkbox"] {
   display: none;
 }
-label {
-  height: 100%;
-  width: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* The category label and its text (catName) */
 .cbCatLabel {
@@ -71,6 +64,11 @@ label {
   border-radius: 10px;
   border: solid var(--secondary-color) 2px;
   transition: all 150ms ease-in-out;
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 769px) {
   .cbCatLabel:hover {
@@ -96,8 +94,8 @@ label {
 
 #foodCardItemsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  place-items: center;
+  grid-template-columns: repeat(auto-fit, 150px);
+  place-items: center center;
   gap: 10px;
   margin: 20px;
 }
@@ -105,5 +103,12 @@ label {
   #foodCardItemsGrid {
     gap: 20px;
     margin: 0px 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
+}
+
+#menuPageBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
 }

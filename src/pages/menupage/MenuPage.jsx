@@ -17,6 +17,7 @@ function MenuPage() {
 
   // State variables containing user search information
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchFavourites, setSearchFavourites] = useState(false);
   const [searchCategories, setSearchCategories] = useState({
     sodas: false,
     burgers: false,
@@ -33,6 +34,14 @@ function MenuPage() {
   function handleSearchInputChange(event) {
     setSearchTerm(() => event.target.value);
   }
+
+  function handleFavouritesSearchToggle() {
+    setSearchFavourites((prevState) => !prevState);
+  }
+
+  // useEffect(() => {
+  //   console.log(searchFavourites);
+  // }, [searchFavourites]);
 
   return (
     <div id="menuPageBodyRoot">
@@ -95,9 +104,16 @@ function MenuPage() {
               <button id="searchClearFilters" className="searchButton">
                 Clear filters
               </button>
-              <button id="searchFavouritesOnly" className="searchButton">
-                Favourites only
-              </button>
+              <div id="favouritesRadioContainer">
+                <input
+                  type="checkbox"
+                  id="favouritesCB"
+                  onChange={handleFavouritesSearchToggle}
+                />
+                <label htmlFor="favouritesCB">
+                  <span>Favourites only</span>
+                </label>
+              </div>
             </div>
           </div>
           <div id="foodCardItemsGrid">
@@ -120,6 +136,13 @@ function MenuPage() {
                   return true;
                 } else {
                   return searchCategories[mappedItem.category];
+                }
+              })
+              .filter((mappedItem) => {
+                if (searchFavourites) {
+                  return user && user.favourites.includes(mappedItem.id);
+                } else {
+                  return true;
                 }
               })
               .map((mappedItem) => {
