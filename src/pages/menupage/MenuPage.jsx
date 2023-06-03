@@ -30,6 +30,10 @@ function MenuPage() {
     itemCategory
   ) {}
 
+  function setCategorySelected(category) {
+    console.log("Category swapped (NI):" + category);
+  }
+
   return (
     <div id="menuPageBodyRoot">
       {/* Checks if menus are fetched */}
@@ -44,7 +48,11 @@ function MenuPage() {
                 className="foodCategoryCB"
                 value="burgers"
               />
-              <label htmlFor="burgersCheckbox">
+              <label
+                htmlFor="burgersCheckbox"
+                className="cbCatLabel"
+                onClick={() => setCategorySelected("burgers")}
+              >
                 <span className="catName">Burgers</span>
               </label>
 
@@ -54,7 +62,11 @@ function MenuPage() {
                 className="foodCategoryCB"
                 value="fries"
               />
-              <label htmlFor="friesCheckbox">
+              <label
+                htmlFor="friesCheckbox"
+                className="cbCatLabel"
+                onClick={() => setCategorySelected("fries")}
+              >
                 <span className="catName">Fries</span>
               </label>
 
@@ -64,7 +76,11 @@ function MenuPage() {
                 className="foodCategoryCB"
                 value="sodas"
               />
-              <label htmlFor="sodasCheckbox">
+              <label
+                htmlFor="sodasCheckbox"
+                className="cbCatLabel"
+                onClick={() => setCategorySelected("sodas")}
+              >
                 <span className="catName">Sodas</span>
               </label>
             </div>

@@ -63,14 +63,30 @@ label {
   align-items: center;
 }
 
-.foodCategoryCB + label {
+/* The category label and its text (catName) */
+.cbCatLabel {
+  box-sizing: border-box;
   color: var(--secondary-color);
   background-color: var(--almost-white);
   border-radius: 10px;
   border: solid var(--secondary-color) 2px;
+  transition: all 150ms ease-in-out;
 }
+.cbCatLabel > .catName {
+  font-size: 1.2rem;
+}
+/* Style for cb when checked */
 .foodCategoryCB:checked + label {
   color: var(--primary-color);
+  background-color: var(--quaternary-color);
+  border: solid var(--almost-white) 2px;
+}
+/* Prevents category text highlight on double click */
+.catName {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 #foodCardItemsGrid {
