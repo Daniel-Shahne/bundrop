@@ -18,9 +18,9 @@ function MenuPage() {
   // State variables containing user search information
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategories, setSearchCategories] = useState({
-    sodas: true,
-    burgers: true,
-    fries: true,
+    sodas: false,
+    burgers: false,
+    fries: false,
   });
 
   function determineVisibility(
@@ -33,7 +33,7 @@ function MenuPage() {
   function setCategorySelected(category, inputId) {
     setSearchCategories((prevState) => ({
       ...prevState,
-      [category]: document.getElementById(inputId).checked,
+      [category]: !document.getElementById(inputId).checked,
     }));
   }
 
