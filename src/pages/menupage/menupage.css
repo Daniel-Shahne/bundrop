@@ -72,6 +72,11 @@ label {
   border: solid var(--secondary-color) 2px;
   transition: all 150ms ease-in-out;
 }
+@media (min-width: 769px) {
+  .cbCatLabel:hover {
+    scale: 1.1;
+  }
+}
 .cbCatLabel > .catName {
   font-size: 1.2rem;
 }
@@ -92,7 +97,7 @@ label {
 #foodCardItemsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  place-items: stretch;
+  place-items: center;
   gap: 10px;
   margin: 20px;
 }

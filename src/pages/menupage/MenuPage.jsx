@@ -23,18 +23,15 @@ function MenuPage() {
     fries: false,
   });
 
-  function determineVisibility(
-    searchTerm,
-    searchCategories,
-    itemName,
-    itemCategory
-  ) {}
-
   function setCategorySelected(category, inputId) {
     setSearchCategories((prevState) => ({
       ...prevState,
       [category]: !document.getElementById(inputId).checked,
     }));
+  }
+
+  function handleSearchInputChange(event) {
+    setSearchTerm(() => event.target.value);
   }
 
   return (
@@ -90,7 +87,11 @@ function MenuPage() {
               </label>
             </div>
             <div id="searchContainer">
-              <input id="searchInput" placeholder="Search for..." />
+              <input
+                id="searchInput"
+                placeholder="Search for..."
+                onChange={(event) => handleSearchInputChange(event)}
+              />
               <button id="searchClearFilters" className="searchButton">
                 Clear filters
               </button>
@@ -100,19 +101,41 @@ function MenuPage() {
             </div>
           </div>
           <div id="foodCardItemsGrid">
-            {foodsMenu.map((mappedItem) => {
-              return (
-                <MenuItemCard
-                  key={mappedItem.id}
-                  item={mappedItem}
-                  category={mappedItem.category}
-                  isFavourite={user && user.favourites.includes(mappedItem.id)}
-                  userSearchTerm={searchTerm}
-                  userSearchCategories={searchCategories}
-                  detVisFunctionRef={determineVisibility}
-                />
-              );
-            })}
+            {foodsMenu
+              .filter((mappedItem) => {
+                if (searchTerm === "") {
+                  return true;
+                } else {
+                  return mappedItem.name
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase());
+                }
+              })
+              .filter((mappedItem) => {
+                if (
+                  !searchCategories.sodas &&
+                  !searchCategories.burgers &&
+                  !searchCategories.fries
+                ) {
+                  return true;
+                } else {
+                  return searchCategories[mappedItem.category];
+                }
+              })
+              .map((mappedItem) => {
+                return (
+                  <MenuItemCard
+                    key={mappedItem.id}
+                    item={mappedItem}
+                    category={mappedItem.category}
+                    isFavourite={
+                      user && user.favourites.includes(mappedItem.id)
+                    }
+                    data-foodCategory={mappedItem.category}
+                    data-foodName={mappedItem.name}
+                  />
+                );
+              })}
           </div>
         </div>
       ) : (
