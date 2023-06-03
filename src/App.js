@@ -40,6 +40,18 @@ function App() {
       .then((jsonRes) => setFoodsMenu(jsonRes));
   }, []);
 
+  // Updates the user entry in json-server whenever
+  // its values in the state variable are changed
+  useEffect(() => {
+    if (user !== null) {
+      fetch(`http://localhost:2001/users/${user.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+    }
+  }, [user]);
+
   return (
     <UserContext.Provider
       value={{

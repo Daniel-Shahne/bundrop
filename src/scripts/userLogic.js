@@ -1,4 +1,8 @@
 export function toggleUserFavourite(userState, userStateSetter, id){    
+    if(userState === null){
+        return
+    }
+    
     if(userState.favourites.includes(id)){
         const newUserFavs = userState.favourites.filter(elem => elem !== id)
         userStateSetter((prevState) => ({

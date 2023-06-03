@@ -17,16 +17,6 @@ function MenuItemCard(props) {
   const [favButtonEnabled, setFavButtonEnabled] = useState(false);
   const { user, setUser, cart, setCart } = useContext(UserContext);
 
-  useEffect(() => {
-    if (user !== null) {
-      fetch(`http://localhost:2001/users/${user.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      });
-    }
-  }, [user]);
-
   // `${props.item.imageSource}`
   return (
     <div className="menuItemCard" data-isfavourite={props.isFavourite}>
@@ -53,17 +43,21 @@ function MenuItemCard(props) {
         </button>
       </div>
       <div className="menuItemPriceStarCont cardTextContainer">
-        <button
-          className="favouriteStar"
-          onClick={async () => {
-            setFavButtonEnabled(true);
-            toggleUserFavourite(user, setUser, props.item.id);
-            setFavButtonEnabled(false);
-          }}
-          disabled={favButtonEnabled}
-        >
-          ★
-        </button>
+        {props.isFavourite !== null ? (
+          <button
+            className="favouriteStar"
+            onClick={async () => {
+              setFavButtonEnabled(true);
+              toggleUserFavourite(user, setUser, props.item.id);
+              setFavButtonEnabled(false);
+            }}
+            disabled={favButtonEnabled}
+          >
+            ★
+          </button>
+        ) : (
+          <div></div>
+        )}
         <span className="menuItemPrice">{props.item.price} SEK</span>
       </div>
     </div>
