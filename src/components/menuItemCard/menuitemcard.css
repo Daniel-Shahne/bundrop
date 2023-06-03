@@ -4,8 +4,8 @@
   position: relative;
   background-color: var(--almost-white);
   box-sizing: border-box;
-  height: 300px;
-  width: 150px;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;

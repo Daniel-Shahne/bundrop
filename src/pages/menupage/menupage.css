@@ -44,8 +44,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 24px;
+  margin-left: 20px;
   height: 100%;
+}
+@media (max-width: 768px) {
+  #foodCategoriesList {
+    margin: 0px 20px;
+  }
 }
 input[type="checkbox"] {
   display: none;
@@ -71,8 +76,7 @@ label {
 #foodCardItemsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  place-items: center;
-
+  place-items: stretch;
   gap: 10px;
   margin: 20px;
 }
