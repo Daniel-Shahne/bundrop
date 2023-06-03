@@ -36,8 +36,12 @@
   color: var(--tertiary-color);
 }
 .searchButton {
+  box-sizing: border-box;
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  border: solid var(--secondary-color) 1.5px;
+  font-size: 0.75rem;
+  font-weight: normal;
 }
 
 #foodCategoriesList {
@@ -111,4 +115,26 @@ input[type="checkbox"] {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
+}
+
+#favOnlyTextLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 100ms ease-in-out;
+}
+#favOnlyTextLabel span {
+  font-size: inherit;
+}
+#favouritesCB:checked + #favOnlyTextLabel {
+  background-color: var(--quaternary-color);
+  border: solid var(--almost-white) 1.5px;
+  color: var(--almost-white);
+}
+/* Prevents category text highlight on double click */
+#favOnlyTextLabel {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }

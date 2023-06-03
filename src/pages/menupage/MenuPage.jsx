@@ -39,6 +39,33 @@ function MenuPage() {
     setSearchFavourites((prevState) => !prevState);
   }
 
+  function clearFilters() {
+    // // Sets search categories all to false
+    setSearchCategories(() => ({
+      sodas: false,
+      burgers: false,
+      fries: false,
+    }));
+    // Unchecks all the checkboxes for category filtering
+    var checkboxes = document.querySelectorAll(".foodCategoryCB");
+    for (var i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].checked = false;
+    }
+
+    // Sets favourites only filtering to false
+    setSearchFavourites(() => false);
+    // Unchecks favourites only checkbox, but only if user
+    // is logged in since the element doesnt exist otherwise
+    if (user !== null) {
+      document.getElementById("favouritesCB").checked = false;
+    }
+
+    // Sets searchTerm to an empty string
+    setSearchTerm(() => "");
+    // Clears search term input
+    document.getElementById("searchInput").value = "";
+  }
+
   // useEffect(() => {
   //   console.log(searchFavourites);
   // }, [searchFavourites]);
@@ -101,19 +128,25 @@ function MenuPage() {
                 placeholder="Search for..."
                 onChange={(event) => handleSearchInputChange(event)}
               />
-              <button id="searchClearFilters" className="searchButton">
+              <button
+                id="searchClearFilters"
+                className="searchButton"
+                onClick={clearFilters}
+              >
                 Clear filters
               </button>
-              <div id="favouritesRadioContainer">
-                <input
-                  type="checkbox"
-                  id="favouritesCB"
-                  onChange={handleFavouritesSearchToggle}
-                />
-                <label htmlFor="favouritesCB">
-                  <span>Favourites only</span>
-                </label>
-              </div>
+              {user && (
+                <div id="favouritesRadioContainer" className="searchButton">
+                  <input
+                    type="checkbox"
+                    id="favouritesCB"
+                    onChange={handleFavouritesSearchToggle}
+                  />
+                  <label htmlFor="favouritesCB" id="favOnlyTextLabel">
+                    <span>Favourites only</span>
+                  </label>
+                </div>
+              )}
             </div>
           </div>
           <div id="foodCardItemsGrid">
