@@ -30,8 +30,11 @@ function MenuPage() {
     itemCategory
   ) {}
 
-  function setCategorySelected(category) {
-    console.log("Category swapped (NI):" + category);
+  function setCategorySelected(category, inputId) {
+    setSearchCategories((prevState) => ({
+      ...prevState,
+      [category]: document.getElementById(inputId).checked,
+    }));
   }
 
   return (
@@ -51,7 +54,9 @@ function MenuPage() {
               <label
                 htmlFor="burgersCheckbox"
                 className="cbCatLabel"
-                onClick={() => setCategorySelected("burgers")}
+                onClick={() =>
+                  setCategorySelected("burgers", "burgersCheckbox")
+                }
               >
                 <span className="catName">Burgers</span>
               </label>
@@ -65,7 +70,7 @@ function MenuPage() {
               <label
                 htmlFor="friesCheckbox"
                 className="cbCatLabel"
-                onClick={() => setCategorySelected("fries")}
+                onClick={() => setCategorySelected("fries", "friesCheckbox")}
               >
                 <span className="catName">Fries</span>
               </label>
@@ -79,7 +84,7 @@ function MenuPage() {
               <label
                 htmlFor="sodasCheckbox"
                 className="cbCatLabel"
-                onClick={() => setCategorySelected("sodas")}
+                onClick={() => setCategorySelected("sodas", "sodasCheckbox")}
               >
                 <span className="catName">Sodas</span>
               </label>
