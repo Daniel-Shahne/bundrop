@@ -13,7 +13,7 @@ import Logo from "../../images/logos/logo color.png";
 import "./navbar.css";
 
 function NavBar() {
-  const { user, cart } = useContext(UserContext);
+  const { user, setUser, cart } = useContext(UserContext);
 
   useEffect(() => {
     window.addEventListener("resize", () =>
@@ -22,6 +22,10 @@ function NavBar() {
     toggleClass768px(".linkToPage", "underlineAnimW");
     // return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  function logOut() {
+    setUser(() => null);
+  }
 
   return (
     <div id="navbar">
@@ -44,8 +48,8 @@ function NavBar() {
             Login/Register
           </Link>
         ) : (
-          <Link to="/account" className="linkToPage">
-            Account
+          <Link to="/" className="linkToPage" onClick={logOut}>
+            Log out
           </Link>
         )}
       </div>

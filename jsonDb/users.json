@@ -11,10 +11,9 @@
       "username": "daniel",
       "password": "12345",
       "favourites": [
-        5,
         1,
-        2,
-        13
+        11,
+        14
       ]
     }
   ]

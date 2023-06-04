@@ -172,8 +172,8 @@ function MenuPage() {
                 }
               })
               .filter((mappedItem) => {
-                if (searchFavourites) {
-                  return user && user.favourites.includes(mappedItem.id);
+                if (searchFavourites && user !== null) {
+                  return user.favourites.includes(mappedItem.id);
                 } else {
                   return true;
                 }
