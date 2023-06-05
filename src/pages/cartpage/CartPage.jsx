@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { UserContext } from "../../App";
 import CartPageItem from "../../components/cartPageItem/CartPageItem";
 import { calcTotalCartPrice } from "../../scripts/shoppingCartLogic";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Image imports
 import cardLogo from "../../images/logos/credit-card.png";
@@ -15,6 +15,11 @@ import "./cartpage.css";
 
 function CartPage() {
   const { cart, foodsMenu } = useContext(UserContext);
+  const navigator = useNavigate();
+
+  function directToPayment(paymentType) {
+    navigator(`/payment/${paymentType}`);
+  }
 
   return (
     <div id="cartPageRoot">

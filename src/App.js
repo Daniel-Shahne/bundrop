@@ -7,9 +7,9 @@ import { useState, createContext } from "react";
 import HomePage from "./pages/homepage/HomePage";
 import MenuPage from "./pages/menupage/MenuPage";
 import CartPage from "./pages/cartpage/CartPage";
-import AccountPage from "./pages/accountpage/AccountPage";
 import LoginPage from "./pages/loginpage/LoginPage";
 import RegisterPage from "./pages/registerpage/RegisterPage";
+import PaymentPage from "./pages/paymentpage/PaymentPage";
 
 // Individual component imports
 import NavBar from "./components/navbar/NavBar";
@@ -68,9 +68,9 @@ function App() {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/menu" element={<MenuPage />}></Route>
           <Route path="/cart" element={<CartPage />}></Route>
-          <Route path="/account" element={<AccountPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/payment/:paymentType" element={<PaymentPage/>}></Route>
         </Routes>
       </Router>
     </UserContext.Provider>
