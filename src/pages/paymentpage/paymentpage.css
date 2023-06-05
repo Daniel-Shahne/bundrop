@@ -56,3 +56,7 @@
 #instructionsInput {
   min-width: 260px;
 }
+
+.errorTextRow {
+  color: var(--warning-red);
+}

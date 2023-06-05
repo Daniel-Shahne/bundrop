@@ -9,8 +9,16 @@ import SwishPayment from "../../components/swishPayment/SwishPayment";
 import "./paymentpage.css";
 
 function PaymentPage() {
+  // State variables
   const { paymentType } = useParams();
   const [paymentTypeComponent, setPaymentTypeComponent] = useState(null);
+  // TODO: Set this to an empty array after testing
+  const [errorsList, setErrorsList] = useState([
+    "Error 1",
+    "Error 2",
+    "Error 3",
+    "Error 4",
+  ]);
 
   /** Sets payment type depending on params. Maybe overkill
    * for just two payment types but in the name of MAINTAINABILITY
@@ -29,41 +37,58 @@ function PaymentPage() {
     <div id="paymentPageRoot">
       <div id="paymentContainer" className="paymentInputsContainer">
         <div id="commonPaymentInfo">
+          <div id="errorsTexts">
+            {errorsList.map((errorText) => (
+              <div className="errorTextRow">{errorText}</div>
+            ))}
+          </div>
           <div className="paymentInfoRow">
             <label
               htmlFor="nameInput"
               id="nameInputLabel"
-              className="paymentInputLabel"
+              className="paymentInputLabel inputLabel"
             >
               Name
             </label>
-            <input type="text" id="adressInput" className="paymentInputField" />
+            <input
+              type="text"
+              id="adressInput"
+              className="paymentInputField inputField"
+            />
           </div>
           <div className="paymentInfoRow">
             <label
               htmlFor="adressInput"
               id="adressInputLabel"
-              className="paymentInputLabel"
+              className="paymentInputLabel inputLabel"
             >
-              Adress
+              Address
             </label>
-            <input type="text" id="nameInput" className="paymentInputField" />
+            <input
+              type="text"
+              id="nameInput"
+              className="paymentInputField inputField"
+            />
           </div>
           <div className="paymentInfoRow">
             <label
               htmlFor="phoneInput"
               id="phoneInputLabel"
-              className="paymentInputLabel"
+              className="paymentInputLabel inputLabel"
             >
               Phone
             </label>
-            <input type="text" id="phoneInput" className="paymentInputField" />
+            <input
+              type="tel"
+              id="phoneInput"
+              className="paymentInputField inputField"
+            />
           </div>
           <div className="paymentInfoRow">
             <label
               htmlFor="instructionsInput"
               id="nameInputLabel"
-              className="paymentInputLabel"
+              className="paymentInputLabel inputLabel"
             >
               Special instructions
             </label>
@@ -72,7 +97,8 @@ function PaymentPage() {
               id="instructionsInput"
               cols="30"
               rows="4"
-              className="paymentInputField"
+              maxLength={30 * 4}
+              className="paymentInputField inputField"
             ></textarea>
           </div>
         </div>
