@@ -1,0 +1,16 @@
+@import url("../../globalStyles/colors.css");
+
+#cartPageRoot {
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+  place-items: start center;
+  gap: 40px;
+  margin: 20px;
+  height: 75vh; /* TODO Change this for mobile*/
+}
+
+.cartPageContainer {
+  background-color: var(--almost-white);
+  width: 100%;
+  height: 200px; /* TODO: Change this*/
+}

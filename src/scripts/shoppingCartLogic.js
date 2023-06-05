@@ -78,3 +78,21 @@ export function sumAllCartItems(stateVar){
 
   return sum;
 }
+
+export function calcTotalCartPrice(foodMenu, cart){
+  let result = 0;
+
+  // Loop over all the keys of the cart, i.e the Id of the food
+  Object.entries(cart).forEach(([cartKey, cartValue]) => {
+    // Finds the food item with Id corresponding cartKey
+    const foodItem = foodMenu.find((foodObj) => foodObj.id == cartKey)
+    // Gets that foodItem's price property and multiplies it by
+    // the cartValue (i.e amount of food item) before adding it
+    // to the result
+    const foodItemTotal = foodItem.price * cartValue;
+    result += foodItemTotal
+  })
+
+  // Returns result
+  return result;
+}
