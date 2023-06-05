@@ -12,7 +12,10 @@ function CartPageItem({ foodItem, foodItemQuantity }) {
 
   return (
     <div className="cartPageItemRoot">
-      <span className="itemName">{foodItem.name}</span>
+      <span className="itemName">
+        {foodItem.name}
+        <span className="itemPrice"> ({foodItem.price} SEK)</span>
+      </span>
       <div className="quantityControlContainer">
         <button
           className="decrementCartItem cartChangeButton"

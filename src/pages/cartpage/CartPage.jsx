@@ -25,7 +25,10 @@ function CartPage() {
         })}
       </div>
       <div id="cartSummaryContainer" className="cartPageContainer">
-        <div id="totalSum">Total: {calcTotalCartPrice(foodsMenu, cart)}</div>
+        <div id="totalSum" className="summaryText">
+          Total: {calcTotalCartPrice(foodsMenu, cart)}
+        </div>
+        <p className="summaryText">Proceed to payment with</p>
       </div>
     </div>
   );

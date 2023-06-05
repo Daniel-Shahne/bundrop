@@ -6,10 +6,15 @@
   display: flex;
   justify-content: space-between;
   padding: 15px;
+  border-radius: 15px;
 }
 
 .itemName {
   color: var(--primary-color);
+}
+
+.itemPrice {
+  color: var(--secondary-color);
 }
 
 .quantityControlContainer {

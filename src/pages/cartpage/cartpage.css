@@ -19,11 +19,34 @@
 .cartPageContainer {
   background-color: var(--almost-white);
   width: 100%;
-  min-height: 400px;
+  min-height: 75vh;
   max-width: 600px;
+  max-height: 75vh;
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  background-clip: content-box;
+  border: 3px solid transparent;
 }
 @media (max-width: 768px) {
   .cartPageContainer {
     min-height: 0px;
+    max-height: none;
   }
+}
+
+#cartSummaryContainer {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.summaryText {
+  text-align: center;
+  margin-bottom: 20px;
 }
