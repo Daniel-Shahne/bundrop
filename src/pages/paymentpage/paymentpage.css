@@ -1,1 +1,58 @@
 @import url("../../globalStyles/colors.css");
+
+#paymentPageRoot {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: start center;
+  gap: 40px;
+  margin: 20px;
+  height: 75vh;
+}
+@media (max-width: 768px) {
+  #paymentPageRoot {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.paymentInputsContainer {
+  background-color: var(--almost-white);
+  width: 100%;
+  min-height: 75vh;
+  max-width: 600px;
+  max-height: 75vh;
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .paymentInputsContainer {
+    min-height: 0px;
+    max-height: none;
+  }
+}
+
+#commonPaymentInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.paymentInfoRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.paymentInputField {
+  width: 50%;
+  min-width: 260px;
+}
+
+#instructionsInput {
+  min-width: 260px;
+}

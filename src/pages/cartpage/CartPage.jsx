@@ -44,11 +44,13 @@ function CartPage() {
             src={cardLogo}
             alt="Card payment option clickable image"
             className="paymentOptionLinkImage"
+            onClick={() => directToPayment("card")}
           />
           <img
             src={swishLogo}
             alt="Swish payment option clickable image"
             className="paymentOptionLinkImage"
+            onClick={() => directToPayment("swish")}
           />
         </div>
       </div>
