@@ -44,9 +44,30 @@
 #cartSummaryContainer {
   box-sizing: border-box;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .summaryText {
   text-align: center;
   margin-bottom: 20px;
+}
+
+#paymentOptionsContainer {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+.paymentOptionLinkImage {
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+
+  transition: all 100ms ease-in-out;
+}
+.paymentOptionLinkImage:hover {
+  width: 220px;
+  height: 220px;
 }

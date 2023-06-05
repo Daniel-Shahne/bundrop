@@ -23,7 +23,7 @@ function CartPageItem({ foodItem, foodItemQuantity }) {
         >
           -
         </button>
-        <span className="itemsInCart">{cart[foodItem.id]}</span>
+        <span className="itemsInCart2">{cart[foodItem.id]}</span>
         <button
           className="incrementCartItem cartChangeButton"
           onClick={() => updateSingleCartItem(cart, setCart, foodItem.id, 1)}

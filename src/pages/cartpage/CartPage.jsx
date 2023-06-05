@@ -4,6 +4,11 @@ import { useContext } from "react";
 import { UserContext } from "../../App";
 import CartPageItem from "../../components/cartPageItem/CartPageItem";
 import { calcTotalCartPrice } from "../../scripts/shoppingCartLogic";
+import { Link } from "react-router-dom";
+
+// Image imports
+import cardLogo from "../../images/logos/credit-card.png";
+import swishLogo from "../../images/logos/swish.png";
 
 // Stylesheet imports
 import "./cartpage.css";
@@ -29,6 +34,18 @@ function CartPage() {
           Total: {calcTotalCartPrice(foodsMenu, cart)}
         </div>
         <p className="summaryText">Proceed to payment with</p>
+        <div id="paymentOptionsContainer">
+          <img
+            src={cardLogo}
+            alt="Card payment option clickable image"
+            className="paymentOptionLinkImage"
+          />
+          <img
+            src={swishLogo}
+            alt="Swish payment option clickable image"
+            className="paymentOptionLinkImage"
+          />
+        </div>
       </div>
     </div>
   );

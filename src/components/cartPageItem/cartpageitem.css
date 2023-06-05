@@ -1,7 +1,7 @@
 @import url("../../globalStyles/colors.css");
 
 .cartPageItemRoot {
-  background-color: var(--tertiary-color);
+  background-color: var(--quaternary-color);
   margin: 10px;
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,11 @@
 }
 
 .itemPrice {
-  color: var(--secondary-color);
+  color: var(--almost-white);
+}
+
+.itemsInCart2 {
+  color: var(--almost-white);
 }
 
 .quantityControlContainer {
