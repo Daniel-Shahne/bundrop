@@ -2,6 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+// Validator logic imports
+import {
+  validateSWEPhoneNumber,
+  validatePersonName,
+  validateAdress,
+  validateCreditCard,
+} from "../../scripts/inputVerification";
+
 // Subcomponents imports
 import SwishPayment from "../../components/swishPayment/SwishPayment";
 
@@ -9,9 +17,12 @@ import SwishPayment from "../../components/swishPayment/SwishPayment";
 import "./paymentpage.css";
 
 function PaymentPage() {
-  // State variables
+  // State variable containing page parameter
   const { paymentType } = useParams();
+  // State variable containing which payment subcomponent to render
+  // and is set by a useEffect
   const [paymentTypeComponent, setPaymentTypeComponent] = useState(null);
+  // State variable containing error codes
   // TODO: Set this to an empty array after testing
   const [errorsList, setErrorsList] = useState([
     "Error 1",
@@ -19,6 +30,46 @@ function PaymentPage() {
     "Error 3",
     "Error 4",
   ]);
+  // State variables containing the input values, and
+  // if they are valid, and the validator function
+  const [nameValue, setNameValue] = useState({
+    value: "",
+    isValid: false,
+  });
+  const [addressValue, setAddressValue] = useState({
+    value: "",
+    isValid: false,
+  });
+  const [phoneValue, setPhoneValue] = useState({
+    value: "",
+    isValid: false,
+  });
+
+  /** UseEffects for each of the input validation state
+   * variables, which check if their value are valid.
+   */
+  // useEffect(() => {
+  //   setNameValue((prevState) => ({
+  //     ...prevState,
+  //     isValid: validatePersonName(prevState.value),
+  //   }));
+  // }, [nameValue]);
+  // useEffect(() => {
+  //   setAddressValue((prevState) => ({
+  //     ...prevState,
+  //     isValid: validateAdress(prevState.value),
+  //   }));
+  // }, [addressValue]);
+
+  /** Function which sets the state variable for each
+   * user input to match the input fields
+   */
+  function handleInputChange(event, stateVarSetter) {
+    stateVarSetter((prevState) => ({
+      ...prevState,
+      value: event.target.value,
+    }));
+  }
 
   /** Sets payment type depending on params. Maybe overkill
    * for just two payment types but in the name of MAINTAINABILITY
@@ -66,8 +117,9 @@ function PaymentPage() {
             </label>
             <input
               type="text"
-              id="nameInput"
+              id="adressInput"
               className="paymentInputField inputField"
+              onChange={(event) => handleInputChange(event, setAddressValue)}
             />
           </div>
           <div className="paymentInfoRow">
