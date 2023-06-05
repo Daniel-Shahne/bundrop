@@ -25,10 +25,7 @@ function PaymentPage() {
   // State variable containing error codes
   // TODO: Set this to an empty array after testing
   const [errorsList, setErrorsList] = useState([
-    "Error 1",
-    "Error 2",
-    "Error 3",
-    "Error 4",
+    "Address must be atleast 5 characters long",
   ]);
   // State variables containing the input values, and
   // if they are valid, and the validator function
@@ -45,30 +42,50 @@ function PaymentPage() {
     isValid: false,
   });
 
-  /** UseEffects for each of the input validation state
-   * variables, which check if their value are valid.
+  /** useEffects which update the errorsList state variable to contain
+   * the respective input types error message. If their isValid are true
+   * meaning that the input is valid for submission then the error msg needs
+   * to be removed from the array. Otherwise its added.
    */
-  // useEffect(() => {
-  //   setNameValue((prevState) => ({
-  //     ...prevState,
-  //     isValid: validatePersonName(prevState.value),
-  //   }));
-  // }, [nameValue]);
-  // useEffect(() => {
-  //   setAddressValue((prevState) => ({
-  //     ...prevState,
-  //     isValid: validateAdress(prevState.value),
-  //   }));
-  // }, [addressValue]);
+  // useEffect for the address input
+  useEffect(() => {
+    const errorMsg = "Address must be atleast 5 characters long";
+    // Should only trigger on first time load when isValid
+    // is false and the errorsList contains the error
+    if (!addressValue.isValid && errorsList.includes(errorMsg)) {
+      return;
+    }
 
-  /** Function which sets the state variable for each
-   * user input to match the input fields
+    // Removing the error msg
+    if (addressValue.isValid && errorsList.includes(errorMsg)) {
+      setErrorsList((prevState) => {
+        const newArray = [...prevState];
+        const indexOfMsg = newArray.indexOf(errorMsg);
+        if (indexOfMsg > -1) {
+          return newArray.splice(indexOfMsg, 1);
+        }
+      });
+    }
+    // Adding the error msg
+    else if (!addressValue.isValid && !errorsList.includes(errorMsg)) {
+      setErrorsList((prevState) => {
+        const newArray = [...prevState];
+        newArray.push(errorMsg);
+        return newArray;
+      });
+    }
+  }, [addressValue]);
+
+  /** Function which will set both the value and isValid property
+   * of a state variable. Since those are the only properties of the
+   * state variable no callback is necessary. Both are set by the event
+   * value
    */
-  function handleInputChange(event, stateVarSetter) {
-    stateVarSetter((prevState) => ({
-      ...prevState,
+  function handleInputChange(event, stateVarSetter, inputValidator) {
+    stateVarSetter({
       value: event.target.value,
-    }));
+      isValid: inputValidator(event.target.value),
+    });
   }
 
   /** Sets payment type depending on params. Maybe overkill
@@ -89,8 +106,10 @@ function PaymentPage() {
       <div id="paymentContainer" className="paymentInputsContainer">
         <div id="commonPaymentInfo">
           <div id="errorsTexts">
-            {errorsList.map((errorText) => (
-              <div className="errorTextRow">{errorText}</div>
+            {errorsList.map((errorText, index) => (
+              <div className="errorTextRow" key={index}>
+                {errorText}
+              </div>
             ))}
           </div>
           <div className="paymentInfoRow">
@@ -119,7 +138,9 @@ function PaymentPage() {
               type="text"
               id="adressInput"
               className="paymentInputField inputField"
-              onChange={(event) => handleInputChange(event, setAddressValue)}
+              onChange={(event) =>
+                handleInputChange(event, setAddressValue, validateAdress)
+              }
             />
           </div>
           <div className="paymentInfoRow">
