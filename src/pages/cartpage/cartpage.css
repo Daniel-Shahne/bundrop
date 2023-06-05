@@ -6,11 +6,24 @@
   place-items: start center;
   gap: 40px;
   margin: 20px;
-  height: 75vh; /* TODO Change this for mobile*/
+  height: 75vh;
+}
+@media (max-width: 768px) {
+  #cartPageRoot {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 }
 
 .cartPageContainer {
   background-color: var(--almost-white);
   width: 100%;
-  height: 200px; /* TODO: Change this*/
+  min-height: 400px;
+  max-width: 600px;
+}
+@media (max-width: 768px) {
+  .cartPageContainer {
+    min-height: 0px;
+  }
 }
