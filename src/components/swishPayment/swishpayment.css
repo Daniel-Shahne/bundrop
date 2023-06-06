@@ -1,1 +1,17 @@
 @import url("../../globalStyles/colors.css");
+
+#swishPaymentRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+#swishPaymentLogo {
+  width: 20%;
+}
+
+#payWithSwishButton {
+  width: 100px;
+}

@@ -27,7 +27,8 @@ function PaymentPage() {
   const [nameValue, setNameValue] = useState({
     value: "",
     isValid: false,
-    errorMsg: "Name can only contain letters, spaces and ' and - characters",
+    errorMsg:
+      "Name can only contain letters and ' and - characters, separated by a space",
   });
   const [addressValue, setAddressValue] = useState({
     value: "",
@@ -64,7 +65,13 @@ function PaymentPage() {
    */
   useEffect(() => {
     if (paymentType === "swish") {
-      setPaymentTypeComponent(<SwishPayment />);
+      setPaymentTypeComponent(
+        <SwishPayment
+          nameStatVar={nameValue}
+          addressStatVar={addressValue}
+          phoneStatVar={phoneValue}
+        />
+      );
     } else if (paymentType === "card") {
       console.log("not yet implemented");
     }
@@ -80,8 +87,8 @@ function PaymentPage() {
                 (inputValueState) =>
                   !inputValueState.isValid && inputValueState.value !== ""
               )
-              .map((filteredInputValueState) => (
-                <p className="errorTextRow">
+              .map((filteredInputValueState, index) => (
+                <p className="errorTextRow" key={index}>
                   {filteredInputValueState.errorMsg}
                 </p>
               ))}
@@ -136,23 +143,6 @@ function PaymentPage() {
                 handleInputChange(event, setPhoneValue, validateSWEPhoneNumber)
               }
             />
-          </div>
-          <div className="paymentInfoRow">
-            <label
-              htmlFor="instructionsInput"
-              id="nameInputLabel"
-              className="paymentInputLabel inputLabel"
-            >
-              Special instructions
-            </label>
-            <textarea
-              name="instructionsInput"
-              id="instructionsInput"
-              cols="30"
-              rows="4"
-              maxLength={30 * 4}
-              className="paymentInputField inputField"
-            ></textarea>
           </div>
         </div>
         <div id="paymentTypeComponent">

@@ -21,13 +21,11 @@
   width: 100%;
   min-height: 75vh;
   max-width: 600px;
-  max-height: 75vh;
   border-radius: 10px;
 }
 @media (max-width: 768px) {
   .paymentInputsContainer {
     min-height: 0px;
-    max-height: none;
   }
 }
 
@@ -59,4 +57,10 @@
 
 .errorTextRow {
   color: var(--warning-red);
+}
+
+#paymentTypeComponent {
+  margin: 20px;
+  background-color: var(--tertiary-color);
+  border-radius: 10px;
 }
