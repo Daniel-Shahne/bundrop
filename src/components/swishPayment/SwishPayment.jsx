@@ -7,15 +7,17 @@ import SwishLogo from "../../images/logos/swish.png";
 // Stylesheet imports
 import "./swishpayment.css";
 
-function SwishPayment({ nameStatVar, addressStatVar, phoneStatVar }) {
+function SwishPayment(props) {
   const [allInputsValid, setAllInputsValid] = useState(false);
   const [buttonClassName, setButtonClassName] = useState("formButton invalid");
 
   useEffect(() => {
     setAllInputsValid(
-      nameStatVar.isValid && addressStatVar.isValid && phoneStatVar.isValid
+      props.nameStatVar.isValid &&
+        props.addressStatVar.isValid &&
+        props.phoneStatVar.isValid
     );
-  }, [nameStatVar, addressStatVar, phoneStatVar]);
+  }, [props.nameStatVar, props.addressStatVar, props.phoneStatVar]);
 
   useEffect(() => {
     setButtonClassName(`formButton${allInputsValid ? " valid" : " invalid"}`);

@@ -75,7 +75,7 @@ function PaymentPage() {
     } else if (paymentType === "card") {
       console.log("not yet implemented");
     }
-  }, []);
+  }, [nameValue, addressValue, phoneValue]);
 
   return (
     <div id="paymentPageRoot">
