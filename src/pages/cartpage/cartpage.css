@@ -71,3 +71,32 @@
   width: 220px;
   height: 220px;
 }
+
+#emptyCartRoot {
+  display: flex;
+  justify-content: center;
+}
+
+#emptyCartContainer {
+  background-color: var(--almost-white);
+  width: 40%;
+  min-width: 300px;
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.emptyCartTitle {
+  text-align: center;
+}
+.emptyCartText {
+  text-align: center;
+}
+.emptyCartLink {
+  text-align: center;
+}

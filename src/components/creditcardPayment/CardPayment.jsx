@@ -59,7 +59,11 @@ function CardPayment(props) {
 
   return (
     <div id="cardPaymentRoot">
-      <p>{!cardValue.isValid ? cardValue.errorMsg : null}</p>
+      <p>
+        {!cardValue.isValid && cardValue.value !== ""
+          ? cardValue.errorMsg
+          : null}
+      </p>
       <label htmlFor="cardInput" className="inputLabel">
         Card number
       </label>
@@ -70,6 +74,7 @@ function CardPayment(props) {
         onChange={(event) =>
           handleInputChange(event, setCardValue, validateCreditCard)
         }
+        placeholder="0000 0000 0000 0000"
       />
       <button
         id="payWithCardButton"
