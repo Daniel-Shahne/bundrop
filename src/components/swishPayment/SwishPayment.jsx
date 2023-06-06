@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../App";
 import { calcTotalCartPrice } from "../../scripts/shoppingCartLogic";
 import { placeOrder } from "../../scripts/shoppingCartLogic";
+import { useNavigate } from "react-router-dom";
 
 // Image imports
 import SwishLogo from "../../images/logos/swish.png";
@@ -14,7 +15,9 @@ function SwishPayment(props) {
   const [allInputsValid, setAllInputsValid] = useState(false);
   const [buttonClassName, setButtonClassName] = useState("formButton invalid");
 
-  const { user, cart, foodsMenu } = useContext(UserContext);
+  const { user, cart, setCart, foodsMenu } = useContext(UserContext);
+
+  const navigator = useNavigate();
 
   useEffect(() => {
     setAllInputsValid(
@@ -43,6 +46,8 @@ function SwishPayment(props) {
       props.nameStatVar.value,
       usersname
     );
+    setCart({});
+    navigator("/confirm");
   }
 
   return (

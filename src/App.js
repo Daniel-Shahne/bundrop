@@ -10,6 +10,7 @@ import CartPage from "./pages/cartpage/CartPage";
 import LoginPage from "./pages/loginpage/LoginPage";
 import RegisterPage from "./pages/registerpage/RegisterPage";
 import PaymentPage from "./pages/paymentpage/PaymentPage";
+import OrderConfirmPage from "./pages/orderconfirmpage/OrderConfirmPage";
 
 // Individual component imports
 import NavBar from "./components/navbar/NavBar";
@@ -71,6 +72,7 @@ function App() {
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
           <Route path="/payment/:paymentType" element={<PaymentPage/>}></Route>
+          <Route path="/confirm" element={<OrderConfirmPage />}></Route>
         </Routes>
       </Router>
     </UserContext.Provider>

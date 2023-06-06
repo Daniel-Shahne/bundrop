@@ -10,7 +10,12 @@
       "id": 2,
       "username": "daniel",
       "password": "12345",
-      "favourites": [1, 11, 14, 13]
+      "favourites": [
+        1,
+        11,
+        14,
+        13
+      ]
     }
   ],
   "orders": [
@@ -33,6 +38,24 @@
         "2": 2
       },
       "total": 210
+    },
+    {
+      "id": 3,
+      "username": "daniel",
+      "orderersname": "vetinte",
+      "items": {
+        "1": 4
+      },
+      "total": 240
+    },
+    {
+      "id": 4,
+      "username": "",
+      "orderersname": "bruh",
+      "items": {
+        "2": 5
+      },
+      "total": 375
     }
   ]
 }
