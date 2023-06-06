@@ -1,5 +1,7 @@
 // Logic imports
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { UserContext } from "../../App";
+import { calcTotalCartPrice } from "../../scripts/shoppingCartLogic";
 
 // Image imports
 import SwishLogo from "../../images/logos/swish.png";
@@ -10,6 +12,8 @@ import "./swishpayment.css";
 function SwishPayment(props) {
   const [allInputsValid, setAllInputsValid] = useState(false);
   const [buttonClassName, setButtonClassName] = useState("formButton invalid");
+
+  const { cart, foodsMenu } = useContext(UserContext);
 
   useEffect(() => {
     setAllInputsValid(
@@ -27,7 +31,7 @@ function SwishPayment(props) {
     <div id="swishPaymentRoot">
       <img id="swishPaymentLogo" src={SwishLogo} alt="Swish logo" />
       <button id="payWithSwishButton" className={buttonClassName}>
-        Pay with Swish
+        Pay {calcTotalCartPrice(foodsMenu, cart)}kr with Swish
       </button>
     </div>
   );

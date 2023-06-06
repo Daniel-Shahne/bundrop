@@ -14,4 +14,12 @@
 
 #payWithSwishButton {
   width: 100px;
+  height: 40px;
+}
+
+.formButton.invalid {
+  background-color: var(--warning-red);
+}
+.formButton.valid {
+  background-color: var(--confirm-green);
 }
