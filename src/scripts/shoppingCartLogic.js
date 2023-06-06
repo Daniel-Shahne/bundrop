@@ -79,6 +79,14 @@ export function sumAllCartItems(stateVar){
   return sum;
 }
 
+/**
+ * Calculates the total price of all the items in the cart
+ * @param {*} foodMenu Object containing the entire menu fetched
+ * from the menu-db json server
+ * @param {*} cart Users cart in the form of an object with both
+ * keys and values as integers
+ * @returns The total price
+ */
 export function calcTotalCartPrice(foodMenu, cart){
   let result = 0;
 
@@ -95,4 +103,35 @@ export function calcTotalCartPrice(foodMenu, cart){
 
   // Returns result
   return result;
+}
+
+/**
+ * Sends a post request to :2001/orders
+ * @param {object} cart_ The obj corresponding to users cart, in the
+ * form of an obj with purely integer keys and values
+ * @param {number} total_ The total price of the items in the cart, 
+ * calculated by function calcTotalCartPrice
+ * @param {string} orderersname_ The name of the person doing the
+ * ordering.
+ * @param {string} username_ Optional parameter. The username of the
+ * logged in user
+ */
+export function placeOrder(cart_, total_, orderersname_, username_ = ""){
+  const order = {
+    id: 0,
+    username: username_, 
+    orderersname: orderersname_,
+    items: cart_, 
+    total: total_
+  }
+
+  console.log(order)
+
+  fetch("http://localhost:2001/orders", {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(order)
+  })
 }
