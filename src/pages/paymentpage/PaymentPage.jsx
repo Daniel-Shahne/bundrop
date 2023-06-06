@@ -22,59 +22,27 @@ function PaymentPage() {
   // State variable containing which payment subcomponent to render
   // and is set by a useEffect
   const [paymentTypeComponent, setPaymentTypeComponent] = useState(null);
-  // State variable containing error codes
-  // TODO: Set this to an empty array after testing
-  const [errorsList, setErrorsList] = useState([
-    "Address must be atleast 5 characters long",
-  ]);
   // State variables containing the input values, and
   // if they are valid, and the validator function
   const [nameValue, setNameValue] = useState({
     value: "",
     isValid: false,
+    errorMsg: "Name can only contain letters, spaces and ' and - characters",
   });
   const [addressValue, setAddressValue] = useState({
     value: "",
     isValid: false,
+    errorMsg: "Address must be atleast 5 characters long",
   });
   const [phoneValue, setPhoneValue] = useState({
     value: "",
     isValid: false,
+    errorMsg: "Only Swedish numbers allowed",
   });
-
-  /** useEffects which update the errorsList state variable to contain
-   * the respective input types error message. If their isValid are true
-   * meaning that the input is valid for submission then the error msg needs
-   * to be removed from the array. Otherwise its added.
+  /** Array containing input status state variables, mainly for use
+   * in displaying feedback to the user
    */
-  // useEffect for the address input
-  useEffect(() => {
-    const errorMsg = "Address must be atleast 5 characters long";
-    // Should only trigger on first time load when isValid
-    // is false and the errorsList contains the error
-    if (!addressValue.isValid && errorsList.includes(errorMsg)) {
-      return;
-    }
-
-    // Removing the error msg
-    if (addressValue.isValid && errorsList.includes(errorMsg)) {
-      setErrorsList((prevState) => {
-        const newArray = [...prevState];
-        const indexOfMsg = newArray.indexOf(errorMsg);
-        if (indexOfMsg > -1) {
-          return newArray.splice(indexOfMsg, 1);
-        }
-      });
-    }
-    // Adding the error msg
-    else if (!addressValue.isValid && !errorsList.includes(errorMsg)) {
-      setErrorsList((prevState) => {
-        const newArray = [...prevState];
-        newArray.push(errorMsg);
-        return newArray;
-      });
-    }
-  }, [addressValue]);
+  const inputValuesStates = [nameValue, addressValue, phoneValue];
 
   /** Function which will set both the value and isValid property
    * of a state variable. Since those are the only properties of the
@@ -82,10 +50,11 @@ function PaymentPage() {
    * value
    */
   function handleInputChange(event, stateVarSetter, inputValidator) {
-    stateVarSetter({
+    stateVarSetter((prevState) => ({
+      ...prevState,
       value: event.target.value,
       isValid: inputValidator(event.target.value),
-    });
+    }));
   }
 
   /** Sets payment type depending on params. Maybe overkill
@@ -106,11 +75,16 @@ function PaymentPage() {
       <div id="paymentContainer" className="paymentInputsContainer">
         <div id="commonPaymentInfo">
           <div id="errorsTexts">
-            {errorsList.map((errorText, index) => (
-              <div className="errorTextRow" key={index}>
-                {errorText}
-              </div>
-            ))}
+            {inputValuesStates
+              .filter(
+                (inputValueState) =>
+                  !inputValueState.isValid && inputValueState.value !== ""
+              )
+              .map((filteredInputValueState) => (
+                <p className="errorTextRow">
+                  {filteredInputValueState.errorMsg}
+                </p>
+              ))}
           </div>
           <div className="paymentInfoRow">
             <label
@@ -124,6 +98,9 @@ function PaymentPage() {
               type="text"
               id="adressInput"
               className="paymentInputField inputField"
+              onChange={(event) =>
+                handleInputChange(event, setNameValue, validatePersonName)
+              }
             />
           </div>
           <div className="paymentInfoRow">
@@ -155,6 +132,9 @@ function PaymentPage() {
               type="tel"
               id="phoneInput"
               className="paymentInputField inputField"
+              onChange={(event) =>
+                handleInputChange(event, setPhoneValue, validateSWEPhoneNumber)
+              }
             />
           </div>
           <div className="paymentInfoRow">
