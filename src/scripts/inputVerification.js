@@ -15,6 +15,6 @@ export function validateAdress(address){
 }
 
 export function validateCreditCard(creditCard){
-    const cardRegex = /^(\\d{4} ){3}\\d{4}$/;
+    const cardRegex = /^\d{4} \d{4} \d{4} \d{4}$/;
     return cardRegex.test(creditCard)
 }
