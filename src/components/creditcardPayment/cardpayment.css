@@ -1,0 +1,13 @@
+@import url("../../globalStyles/colors.css");
+
+#cardPaymentRoot {
+  display: flex;
+  flex-direction: column;
+  place-items: center center;
+  gap: 20px;
+  padding: 10px;
+}
+
+#payWithCardButton {
+  height: 40px;
+}

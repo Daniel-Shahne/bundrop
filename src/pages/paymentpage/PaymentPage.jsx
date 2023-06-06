@@ -12,6 +12,7 @@ import {
 
 // Subcomponents imports
 import SwishPayment from "../../components/swishPayment/SwishPayment";
+import CardPayment from "../../components/creditcardPayment/CardPayment";
 
 // Stylesheet imports
 import "./paymentpage.css";
@@ -73,7 +74,13 @@ function PaymentPage() {
         />
       );
     } else if (paymentType === "card") {
-      console.log("not yet implemented");
+      setPaymentTypeComponent(
+        <CardPayment
+          nameStatVar={nameValue}
+          addressStatVar={addressValue}
+          phoneStatVar={phoneValue}
+        />
+      );
     }
   }, [nameValue, addressValue, phoneValue]);
 
