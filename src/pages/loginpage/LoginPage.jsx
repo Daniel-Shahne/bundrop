@@ -1,5 +1,5 @@
 // Logic imports
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../App";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,14 +13,20 @@ import "./loginpage.css";
 
 function LoginPage() {
   const { user, setUser } = useContext(UserContext);
+  const [errorMsg, setErrorMsg] = useState("");
   const navigator = useNavigate();
+
+  async function tryLogin(event, userSetter, navigator) {
+    submitLoginForm(event, userSetter, navigator, setErrorMsg);
+  }
 
   return (
     <div id="loginPageRoot">
       <form
         id="loginContainer"
-        onSubmit={(event) => submitLoginForm(event, setUser, navigator)}
+        onSubmit={(event) => tryLogin(event, setUser, navigator)}
       >
+        {errorMsg !== "" ? <p>{errorMsg}</p> : null}
         <img src={Logo} alt="BunDrop logo" id="imageRow" />
         <div className="containerRow inputsRow">
           <label

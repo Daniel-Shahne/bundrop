@@ -1,7 +1,7 @@
 // Logic imports
 
 
-export function submitLoginForm(event, userStateVarSetter, navigatorCallback){
+export function submitLoginForm(event, userStateVarSetter, navigatorCallback, errorSetter){
     const username = event.target.elements.usernameInput.value
     const password = event.target.elements.passwordInput.value
         
@@ -12,6 +12,9 @@ export function submitLoginForm(event, userStateVarSetter, navigatorCallback){
             if(typeof result === "object"){
                 userStateVarSetter(result)
                 navigatorCallback("/")
+            }
+            else if(typeof result === "string"){
+                errorSetter(() => result)
             }
         })
     }
