@@ -1,0 +1,9 @@
+.registerContainer {
+  overflow: scroll !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+#imageRow {
+  width: 30% !important;
+}

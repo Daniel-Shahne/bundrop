@@ -19,7 +19,7 @@ export function submitLoginForm(event, userStateVarSetter, navigatorCallback, er
         })
     }
     else if (document.activeElement.name === "submitRegister"){
-        console.log("Submitting to register")
+        navigatorCallback("/register")
     }
     else{
         console.error("Unexpected error in submitLoginForm")
@@ -34,7 +34,7 @@ export function submitLoginForm(event, userStateVarSetter, navigatorCallback, er
  * or a string representing an error message of why login was
  * unsuccessfull
  */
-function attemptLoginAsync(username, password){
+export function attemptLoginAsync(username, password){
     return new Promise(function(resolve, reject){
         let usersJson = null;
         fetch("http://localhost:2001/users")
