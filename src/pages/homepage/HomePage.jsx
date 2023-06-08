@@ -70,8 +70,8 @@ function HomePage() {
                 <h2>Register now!</h2>
                 <p>
                   Registering an account lets you save favourites so you can get
-                  your delicious drop even quicker next time! It also saves all
-                  your orders to our hidden database incase we might give out
+                  your delicious drops even quicker next time! It also saves all
+                  your orders to our hidden database in case we might give out
                   future discounts to our most loyal customers
                 </p>
               </div>
