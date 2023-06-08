@@ -16,6 +16,7 @@
 @media (max-width: 768px) {
   #categoryAndSearchContainer {
     grid-template-columns: 1fr;
+    gap: 20px 0px;
   }
 }
 
