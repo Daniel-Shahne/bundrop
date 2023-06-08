@@ -28,17 +28,6 @@ function CartPage() {
     return (
       <div>
         <div id="cartPageRoot">
-          <div id="cartItemsContainer" className="cartPageContainer">
-            {Object.keys(cart).map((key) => {
-              return (
-                <CartPageItem
-                  key={key}
-                  foodItem={foodsMenu.find((foodObj) => foodObj.id == key)}
-                  foodItemQuantity={cart[key]}
-                />
-              );
-            })}
-          </div>
           <div id="cartSummaryContainer" className="cartPageContainer">
             <div id="totalSum" className="summaryText">
               Total: {calcTotalCartPrice(foodsMenu, cart)}kr
@@ -58,6 +47,17 @@ function CartPage() {
                 onClick={() => directToPayment("swish")}
               />
             </div>
+          </div>
+          <div id="cartItemsContainer" className="cartPageContainer">
+            {Object.keys(cart).map((key) => {
+              return (
+                <CartPageItem
+                  key={key}
+                  foodItem={foodsMenu.find((foodObj) => foodObj.id == key)}
+                  foodItemQuantity={cart[key]}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
