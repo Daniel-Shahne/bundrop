@@ -24,7 +24,7 @@ function RegisterPage() {
       >
         <img src={Logo} alt="BunDrop logo" id="imageRow" />
         {errorMsg.length > 0
-          ? errorMsg.map((errorMess) => <p>{errorMess}</p>)
+          ? errorMsg.map((errorMess, index) => <p key={index}>{errorMess}</p>)
           : null}
         <div className="containerRow inputsRow">
           <label

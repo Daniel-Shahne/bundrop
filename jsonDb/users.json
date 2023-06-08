@@ -25,6 +25,17 @@
       "username": "awda",
       "password": "1234",
       "favourites": []
+    },
+    {
+      "id": 4,
+      "username": "poopity",
+      "password": "awdawd",
+      "favourites": [
+        7,
+        13,
+        10,
+        15
+      ]
     }
   ],
   "orders": [
@@ -109,6 +120,22 @@
         "5": 3
       },
       "total": 315
+    },
+    {
+      "id": 10,
+      "username": "poopity",
+      "orderersname": "dani",
+      "items": {
+        "3": 1,
+        "4": 1,
+        "5": 2,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 2,
+        "14": 1
+      },
+      "total": 705
     }
   ]
 }
