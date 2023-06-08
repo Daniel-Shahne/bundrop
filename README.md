@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# What is BunDrop?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It's my two week project for our web development class. It's proof of two things. One is that I know
+how to program web apps, and the second is that I'm awful at designing UI's. The app itself is for
+an imaginary restaurant called BunDrop whose identity is delivering food via drones.
 
-## Available Scripts
+## Starting the app
 
-In the project directory, you can run:
+Three powershell commands needed, all run in the project directory.
 
-### `npm start`
+### `npm run users-db`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the json-server containing users and their order history. Will run on
+localhost/2001 and contains the two endpoints /orders and /users
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `npm run menu-db`
 
-### `npm test`
+Runs the json-server containing the restaurants menu of food. Will run on
+localhost/2000 and only contains a single endpoint /foodsMenu
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm run start`
 
-### `npm run build`
+The default React bootstrap start command. Will run the app in development
+mode on localhost/3000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Analys av val
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Själv är jag väldigt glad över att ha lärt mig React för faktumet att saker går att
+dela upp så mycket i mindre bitar gör det mycket enklare att ha en bra översikt av
+projektet. Vue hade också varit en möjlig lösning men jag personligen anser syntaxen
+i React's JSX vara mycket tydligare, och jag behöver inte ha koll på vilka variabler
+som är eller kommer vara computed eller ej.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Men på grund av tidsbrist och stress känns det ändå inte som att jag fullt
+har utnyttjat moduläriteten i React. Om jag hade tid att refaktorera hade jag velat
+flytta så mycket av den gemensamma koden som möjligt in i sina egna komponenter (men även större delar av vissa sidor som inte är gemensam, ex de tre panelerna i HomePage ifall de skulle
+behövas förbättras i framtiden), samt flyttat all CSS som är delad (ex input rutor) in i delade CSS filer, likt vad jag gjort med färgerna då alla dessa finns i ett och samma CSS dokument som alla filer importerar. Detta hade också krävt mer struktur och planering angående mina UI element så jag vet vilka klasser som förväntas tillämpas på vilka element. Resultaten av hur jag gjort det nu är lite spaghetti-fierad kod då jag ibland fick ha en "temporär" lösning där !important slängdes hit
+och dit i slutet. Såklart hade en riktig sådan app blivit svår att ändra på i framtiden, speciellt
+nu när jag inte heller haft tid med att ordäntligt dokumentera/kommentera hela koden.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ett bra val jag gjort dock är att ha en useContext för de variabler som används överallt i hela
+appen, varav den inloggade användaren och dess cart de två viktigaste. På grund av detta slapp jag
+mycket "prop drilling" vilket är bad practice och kunde istället nå dem enkelt när jag behövde
+vart som helst i appen då hela appens Router är wrappad i detta contexts provider.
