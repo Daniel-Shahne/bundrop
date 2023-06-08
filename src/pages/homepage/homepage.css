@@ -7,8 +7,80 @@
 .homePageHeading {
   text-align: center;
   color: var(--primary-color);
+  background-image: linear-gradient(
+    to right,
+    white,
+    var(--quaternary-color),
+    white
+  );
+  margin: 0px 20px;
+  border-radius: 20px;
 }
 
+/*---------------- Links ------------------*/
+.homePageLinkContainer {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+#homePageLinksContainer {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  gap: 20px;
+  margin: 20px;
+}
+.homePageLinkContainer {
+  background-color: var(--almost-white);
+  min-width: 300px;
+  min-height: 300px;
+  border-radius: 20px;
+
+  box-sizing: border-box;
+  transition: all 100ms ease-in-out;
+  border: solid var(--secondary-color) 0px;
+}
+@media (max-width: 768px) {
+  #homePageLinksContainer {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 769px) {
+  .homePageLinkContainer:hover {
+    border: solid var(--secondary-color) 2px;
+  }
+}
+
+/* -------------- Menu link --------------- */
+#menuLinkContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+#randomBurgerImage {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+#menuLogPanel:hover {
+  border: solid var(--secondary-color) 0px !important;
+}
+
+/* ------------ log in panel --------- */
+.logPanel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* --------------About us---------------- */
 #aboutUsContainer {
   display: grid;
   grid-template-columns: 0.3fr 0.7fr;

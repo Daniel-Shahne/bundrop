@@ -1,7 +1,8 @@
 // Logic imports
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 // Image import
 import logo from "../../images/logos/logo color.png";
@@ -11,14 +12,73 @@ import "./homepage.css";
 
 function HomePage() {
   const { user } = useContext(UserContext);
+  const [randomBurgerIndex, setRandomBurgerIndex] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRandomBurgerIndex((randomBurgerIndex) => {
+        if (randomBurgerIndex === 9) {
+          return 1;
+        } else {
+          return randomBurgerIndex + 1;
+        }
+      });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div id="homePageRoot">
       {user !== null ? (
-        <h1 className="homePageHeading">Welcome back, {user.username}!</h1>
+        <h1 className="homePageHeading">
+          Welcome back to BunDrop, {user.username}!
+        </h1>
       ) : (
         <h1 className="homePageHeading">Welcome to BunDrop!</h1>
       )}
+      <div id="homePageLinksContainer">
+        <Link
+          className="homePageLinkContainer"
+          id="menuLinkContainer"
+          to="/menu"
+        >
+          <div className="logPanel" id="menuLogPanel">
+            <h3>Check out our menu!</h3>
+            <img
+              id="randomBurgerImage"
+              src={
+                process.env.PUBLIC_URL +
+                `/images/burgers/burger-${randomBurgerIndex}.png`
+              }
+              alt="Random burger image"
+            />
+          </div>
+        </Link>
+        <div className="homePageLinkContainer">
+          {user !== null ? (
+            <div id="loggedInPanel" className="logPanel">
+              <h2>Thank you for being a registered user!</h2>
+              <p>
+                Although we dont have much to say for now, we are very grateful
+                that you'd join us as we push forward the restaurant industry
+                and burger experiences
+              </p>
+            </div>
+          ) : (
+            <Link to="/register" className="homePageLinkContainer">
+              <div id="notLoggedInPanel" className="logPanel">
+                <h2>Register now!</h2>
+                <p>
+                  Registering an account lets you save favourites so you can get
+                  your delicious drop even quicker next time! It also saves all
+                  your orders to our hidden database incase we might give out
+                  future discounts to our most loyal customers
+                </p>
+              </div>
+            </Link>
+          )}
+        </div>
+      </div>
       <div id="aboutUsContainer">
         <h2 id="aboutUsHeader">About us</h2>
         <p>
@@ -39,8 +99,6 @@ function HomePage() {
           electronic drones
         </p>
       </div>
-
-      <div id="homePageLinksContainer"></div>
     </div>
   );
 }
